@@ -1,4 +1,3 @@
-import type { Metadata } from 'next';
 import { Questrial } from 'next/font/google';
 import './globals.css';
 import FollowingCursor from '../components/following-dots';
@@ -11,11 +10,6 @@ const questrial = Questrial({
   weight: '400',
 });
 
-export const metadata: Metadata = {
-  title: 'Hamzah Raihan',
-  description: 'portfolio website',
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -23,12 +17,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${questrial.className} antialiased`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+      <body className={`${questrial.className} antialiased transition-colors duration-300 bg-white dark:bg-neutral-900`}>
+        <ThemeProvider attribute="class" defaultTheme="dark">
           <FollowingCursor
             dotSize={12}
             dotLag={10}
-            dotColor="white"
             wrapperElement={
               <>
                 <Navigation />
