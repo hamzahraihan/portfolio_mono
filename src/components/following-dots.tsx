@@ -1,5 +1,6 @@
 'use client';
 
+import { useTheme } from 'next-themes';
 import React, { useEffect, useRef, ReactNode } from 'react';
 
 interface Position {
@@ -46,7 +47,18 @@ class Dot implements DotClass {
   }
 }
 
-const FollowingCursor: React.FC<FollowingCursorProps> = ({ wrapperElement = null, dotSize = 10, dotLag = 10, dotColor = '#ffffff' }) => {
+const FollowingCursor: React.FC<FollowingCursorProps> = ({ wrapperElement = null, dotSize = 10, dotLag = 10 }) => {
+  const { theme } = useTheme();
+  const toggleTheme = () => {
+    if (theme == 'dark') {
+      return 'white';
+    } else {
+      return 'black';
+    }
+  };
+
+  const dotColor: 'white' | 'black' = toggleTheme();
+
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const cursorRef = useRef<Position>({ x: 0, y: 0 });
   const dotRef = useRef<Dot | null>(null);
