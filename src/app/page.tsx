@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
+import HeadPage from './components/head/page';
 
 export const metadata: Metadata = {
   title: 'Hamzah Raihan',
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <div className="container h-screen mx-auto">
-      <Image src="/next.svg" alt="next icon" width={200} height={200} />
+      <HeadPage />
     </div>
   );
 }
