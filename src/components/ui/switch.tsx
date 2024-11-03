@@ -14,10 +14,12 @@ const Switch = React.forwardRef<React.ElementRef<typeof SwitchPrimitives.Root>, 
     {...props}
     ref={ref}
   >
-    <Sun className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-neutral-800  opacity-100 transition-opacity z-10" aria-hidden="true" />
-    <Moon className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-white opacity-100 transition-opacity z-10" aria-hidden="true" />
+    <Sun className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-white opacity-100 transition-opacity z-10" aria-hidden="true" />
+    <Moon className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-neutral-800 opacity-100 transition-opacity z-10" aria-hidden="true" />
     <SwitchPrimitives.Thumb
-      className={cn('pointer-events-none block h-[1.6rem] w-9 rounded-3xl bg-neutral-950 ring-0 transition-transform duration-300 ease-in-out data-[state=checked]:translate-x-12 data-[state=unchecked]:translate-x-[0.17rem] dark:bg-white')}
+      className={cn(
+        'pointer-events-none block h-[1.7rem] w-9 rounded-3xl bg-neutral-950 ring-0 transition-transform duration-300 ease-in-out data-[state=checked]:translate-x-[3.1rem] data-[state=unchecked]:translate-x-[0.17rem] dark:bg-white'
+      )}
     />
   </SwitchPrimitives.Root>
 ));
