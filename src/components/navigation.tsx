@@ -9,7 +9,7 @@ function Navigation() {
   console.log('🚀 ~ Navigation ~ theme:', theme);
 
   return (
-    <div className="flex sticky top-0 justify-between items-center border-b dark:border-neutral-800 text-sm h-12 mx-4">
+    <div className="flex sticky top-0 justify-between items-center border-b dark:border-neutral-800 bg-white dark:bg-neutral-900 text-sm h-12 mx-4">
       <div>hamzahraihan</div>
       <Switch onClick={() => setTheme(theme == 'dark' ? 'light' : 'dark')} checked={theme != 'light'} aria-readonly />
       <div className="flex gap-20 h-full">
