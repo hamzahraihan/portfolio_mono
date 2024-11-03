@@ -3,6 +3,7 @@ import './globals.css';
 import FollowingCursor from '../components/following-dots';
 import { ThemeProvider } from '../components/theme-provider';
 import Navigation from '../components/navigation';
+import SmoothScroll from '@/components/smooth-scroll';
 
 const questrial = Questrial({
   subsets: ['latin'],
@@ -23,10 +24,10 @@ export default function RootLayout({
             dotSize={12}
             dotLag={10}
             wrapperElement={
-              <>
+              <SmoothScroll>
                 <Navigation />
                 {children}
-              </>
+              </SmoothScroll>
             }
           />
         </ThemeProvider>
