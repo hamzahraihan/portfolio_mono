@@ -10,7 +10,7 @@ type LetterPositionsProps = {
   rotation: number;
 };
 
-const CircularText = ({ text = 'CIRCULAR TEXT EXAMPLE • ', radius = 100, fontSize = 20, rotation = 0, className = '' }) => {
+const CircularText = ({ text = '', radius = 100, fontSize = 20, rotation = 0, className = '' }) => {
   const [letters, setLetters] = useState<LetterPositionsProps[]>([]);
 
   useEffect(() => {
@@ -31,7 +31,7 @@ const CircularText = ({ text = 'CIRCULAR TEXT EXAMPLE • ', radius = 100, fontS
   }, [text, radius, rotation]);
 
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex items-center justify-center h-80 w-64">
       <svg viewBox={`${-radius - fontSize} ${-radius - fontSize} ${2 * radius + 2 * fontSize} ${2 * radius + 2 * fontSize}`} className={`w-full max-w-md h-auto ${className}`}>
         {letters.map((letter, i) => (
           <text key={i} x={letter.x} y={letter.y} fontSize={fontSize} textAnchor="middle" dominantBaseline="middle" fill="currentColor" transform={`rotate(${letter.rotation} ${letter.x} ${letter.y})`}>
