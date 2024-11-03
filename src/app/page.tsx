@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import HeadPage from './components/head/page';
+import HeadPage from './components/head';
 
 export const metadata: Metadata = {
   title: 'Hamzah Raihan',
@@ -9,6 +9,9 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <div className="container h-screen mx-auto">
+      <HeadPage />
+      <HeadPage />
+      <HeadPage />
       <HeadPage />
     </div>
   );
