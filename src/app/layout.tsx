@@ -17,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${questrial.className} antialiased transition-colors duration-300 bg-white dark:bg-neutral-900`}>
+      <body className={`${questrial.className} antialiased transition-colors duration-300 bg-white dark:bg-neutral-900 selection:bg-black selection:text-white dark:selection:text-black dark:selection:bg-white`}>
         <ThemeProvider attribute="class" defaultTheme="dark">
           <FollowingCursor
             dotSize={12}
