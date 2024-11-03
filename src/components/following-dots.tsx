@@ -19,7 +19,6 @@ interface FollowingCursorProps {
   wrapperElement?: ReactNode;
   dotSize?: number;
   dotLag?: number;
-  dotColor?: string;
 }
 
 class Dot implements DotClass {
