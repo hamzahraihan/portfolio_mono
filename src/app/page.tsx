@@ -8,7 +8,14 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="container h-screen mx-auto">
+    <div className="container h-fit mx-auto">
+      <HeadPage />
+      <HeadPage />
+      <HeadPage />
+      <HeadPage />
+      <HeadPage />
+      <HeadPage />
+      <HeadPage />
       <HeadPage />
     </div>
   );
