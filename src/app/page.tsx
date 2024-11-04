@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import HeadPage from './components/head';
-import BigText from './components/big_text';
+import { BigText } from './components/big_text';
+import { HeadPage } from './components/hero';
 
 export const metadata: Metadata = {
   title: 'Hamzah Raihan',
