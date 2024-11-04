@@ -10,9 +10,6 @@ export default function Home() {
   return (
     <div className="container h-screen mx-auto">
       <HeadPage />
-      <HeadPage />
-      <HeadPage />
-      <HeadPage />
     </div>
   );
 }
