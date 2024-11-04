@@ -12,6 +12,9 @@ export default function Home() {
     <div className="h-fit mx-auto">
       <HeadPage />
       <BigText title="software_engineer" />
+      <BigText title="software_engineer" />
+      <BigText title="software_engineer" />
+      <BigText title="software_engineer" />
     </div>
   );
 }
