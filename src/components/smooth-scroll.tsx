@@ -32,7 +32,7 @@ const SmoothScroll = ({ children }: { children: ReactNode }) => {
   const { scrollY } = useScroll();
 
   const transform = useTransform(scrollY, [0, pageHeight], [0, -pageHeight]);
-  const physics: PhysicsProp = { damping: 15, mass: 0.27, stiffness: 55 };
+  const physics: PhysicsProp = { damping: 15, mass: 0.27, stiffness: 70 };
   const spring = useSpring(transform, physics);
 
   return (
