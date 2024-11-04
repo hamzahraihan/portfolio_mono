@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import HeadPage from './components/head';
+import BigText from './components/big_text';
 
 export const metadata: Metadata = {
   title: 'Hamzah Raihan',
@@ -8,9 +9,9 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="container h-fit mx-auto">
+    <div className="h-fit mx-auto">
       <HeadPage />
-      <HeadPage />
+      <BigText title="software_engineer" />
     </div>
   );
 }
