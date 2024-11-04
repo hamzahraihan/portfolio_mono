@@ -37,7 +37,7 @@ const SmoothScroll = ({ children }: { children: ReactNode }) => {
 
   return (
     <>
-      <motion.div ref={scrollRef} style={{ y: spring }} className="w-full will-change-transform">
+      <motion.div ref={scrollRef} style={{ y: spring }} className="fixed top-0 left-0 w-full overflow-hidden will-change-transform">
         {children}
       </motion.div>
       <div style={{ height: pageHeight }} />
