@@ -30,7 +30,7 @@ const CircularText = ({ text = '', radius = 100, fontSize = 20, rotation = 0, cl
   }, [text, radius, rotation]);
 
   return (
-    <div className="flex items-center justify-center h-80 w-64">
+    <div className="flex items-center justify-center h-80 w-40">
       <svg viewBox={`${-radius - fontSize} ${-radius - fontSize} ${2 * radius + 2 * fontSize} ${2 * radius + 2 * fontSize}`} className={`w-full max-w-md h-auto ${className}`}>
         {letters.map((letter, i) => (
           <text key={i} x={letter.x} y={letter.y} fontSize={fontSize} textAnchor="middle" dominantBaseline="middle" fill="currentColor" transform={`rotate(${letter.rotation} ${letter.x} ${letter.y})`}>
