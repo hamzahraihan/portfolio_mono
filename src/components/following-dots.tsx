@@ -108,9 +108,10 @@ const FollowingCursor: React.FC<FollowingCursorProps> = ({ wrapperElement = null
 
     const onMouseMove = (e: MouseEvent): void => {
       if (!elementRef.current && !wrapperElement) {
+        // For body-level tracking, include scroll position only when not using a wrapper
         cursorRef.current = {
-          x: e.clientX,
-          y: e.clientY,
+          x: e.clientX + (wrapperElement ? 0 : window.scrollX),
+          y: e.clientY + (wrapperElement ? 0 : window.scrollY),
         };
         return;
       }
@@ -118,8 +119,8 @@ const FollowingCursor: React.FC<FollowingCursorProps> = ({ wrapperElement = null
       if (elementRef.current) {
         const boundingRect = elementRef.current.getBoundingClientRect();
         cursorRef.current = {
-          x: e.clientX - boundingRect.left,
-          y: e.clientY - boundingRect.top,
+          x: e.clientX - boundingRect.left + (wrapperElement ? 0 : window.scrollX),
+          y: e.clientY - boundingRect.top + (wrapperElement ? 0 : window.scrollY),
         };
       }
     };
@@ -164,6 +165,16 @@ const FollowingCursor: React.FC<FollowingCursorProps> = ({ wrapperElement = null
 
       element.addEventListener('mousemove', onMouseMove);
       window.addEventListener('resize', onWindowResize);
+
+      // Add scroll event listener when not using wrapper
+      if (!wrapperElement) {
+        window.addEventListener('scroll', () => {
+          if (cursorRef.current) {
+            cursorRef.current.y += window.scrollY;
+          }
+        });
+      }
+
       loop();
 
       const handlePrefersMotionChange = (): void => {
@@ -185,6 +196,9 @@ const FollowingCursor: React.FC<FollowingCursorProps> = ({ wrapperElement = null
         }
         element.removeEventListener('mousemove', onMouseMove);
         window.removeEventListener('resize', onWindowResize);
+        if (!wrapperElement) {
+          window.removeEventListener('scroll', () => {});
+        }
         prefersReducedMotion.removeEventListener('change', handlePrefersMotionChange);
       };
     }
