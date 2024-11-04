@@ -11,12 +11,6 @@ export default function Home() {
     <div className="container h-fit mx-auto">
       <HeadPage />
       <HeadPage />
-      <HeadPage />
-      <HeadPage />
-      <HeadPage />
-      <HeadPage />
-      <HeadPage />
-      <HeadPage />
     </div>
   );
 }
