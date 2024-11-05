@@ -10,7 +10,7 @@ type PhysicsProp = {
   stiffness: number;
 };
 
-const SmoothScroll = ({ children }: { children: ReactNode }) => {
+const SmoothScroll = ({ children, navigation }: { children: ReactNode; navigation: ReactNode }) => {
   const scrollRef = useRef(null);
 
   const [pageHeight, setPageHeight] = useState(0);
@@ -37,6 +37,8 @@ const SmoothScroll = ({ children }: { children: ReactNode }) => {
 
   return (
     <>
+      {navigation && <div className="fixed top-0 left-0 w-full z-50">{navigation}</div>}
+
       <motion.div ref={scrollRef} style={{ y: spring }} className="fixed top-0 left-0 w-full overflow-hidden will-change-transform">
         {children}
       </motion.div>
