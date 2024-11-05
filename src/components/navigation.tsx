@@ -3,6 +3,7 @@
 import { useTheme } from 'next-themes';
 import React from 'react';
 import { Switch } from './ui/switch';
+import Link from 'next/link';
 
 function Navigation() {
   const { theme, setTheme } = useTheme();
@@ -15,7 +16,7 @@ function Navigation() {
       <div className="flex gap-20 h-full">
         <div className="after:duration-200 ease-out after:block after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-900 after:dark:bg-neutral-300 after:transition-transform after:hover:origin-bottom-left after:hover:scale-x-100">
           <div className="flex h-full items-center">
-            <p>What i do</p>
+            <Link href="#about">What i do</Link>
           </div>
         </div>
         <div className="after:duration-200 ease-out after:block after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-900 after:dark:bg-neutral-300 after:transition-transform after:hover:origin-bottom-left after:hover:scale-x-100">
