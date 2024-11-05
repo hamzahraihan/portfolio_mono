@@ -2,30 +2,18 @@
 
 import { useTheme } from 'next-themes';
 import { Switch } from './ui/switch';
-import { useEffect } from 'react';
 
 function Navigation() {
   const { theme, setTheme } = useTheme();
-  useEffect(() => {
-    console.log('Available sections:', {
-      home: document.getElementById('hero'),
-      about: document.getElementById('what-i-do'),
-      who: document.getElementById('who'),
-      contact: document.getElementById('contact'),
-    });
-  }, []);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
-    console.log('Scrolling to:', id, 'Element found:', element); // Debug log
     if (element) {
-      // Add offset for the fixed header if needed
-      const headerOffset = 48; // Adjust this value based on your header height
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.scrollY - headerOffset;
+      const headerHeight = 48; // Height of your fixed header
+      const elementTop = element.offsetTop - headerHeight;
 
       window.scrollTo({
-        top: offsetPosition,
+        top: elementTop,
         behavior: 'smooth',
       });
     }
