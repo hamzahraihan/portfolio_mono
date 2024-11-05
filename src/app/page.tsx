@@ -9,12 +9,12 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="h-fit mx-auto">
+    <main className="max-w-full h-full">
       <HeadPage />
       <BigText title="software_engineer" />
       <BigText title="software_engineer" />
       <BigText title="software_engineer" />
       <BigText title="software_engineer" />
-    </div>
+    </main>
   );
 }
