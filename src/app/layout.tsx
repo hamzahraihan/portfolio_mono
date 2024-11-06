@@ -20,7 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${questrial.className} antialiased transition-colors duration-300`}>
         <ThemeProvider attribute="class" defaultTheme="dark">
-          <FollowingCursor dotSize={12} dotLag={10} wrapperElement={<SmoothScroll navigation={<Navigation />}>{children}</SmoothScroll>} />
+          <FollowingCursor dotSize={12} dotLag={20} wrapperElement={<SmoothScroll navigation={<Navigation />}>{children}</SmoothScroll>} />
         </ThemeProvider>
       </body>
     </html>
