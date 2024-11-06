@@ -15,7 +15,7 @@ function BigText({ title = '' }: Readonly<{ title: string }>) {
 
   return (
     <div ref={ref} className="h-52 overflow-hidden">
-      <motion.div className="text-center text-[10rem] max-w-full h-fit text-wrap" style={{ y: yPos }} viewport={{ once: true }}>
+      <motion.div className="text-center text-6xl sm:text-7xl md:text-8xl lg:text-[10rem] max-w-full h-fit text-wrap" style={{ y: yPos }} viewport={{ once: true }}>
         <span className="animate-flash ">{'>'}</span>
         {title}
       </motion.div>
