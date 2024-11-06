@@ -11,11 +11,11 @@ function BigText({ title = '' }: Readonly<{ title: string }>) {
   });
 
   // Transform scrollYProgress (0 to 1) into y position (100px to 0)
-  const yPos = useTransform(scrollYProgress, [0, 1], ['100%', '0%']);
+  const yPos = useTransform(scrollYProgress, [0, 1], [300, 0]);
 
   return (
     <div ref={ref} className="h-fit overflow-hidden">
-      <motion.div className="text-center text-6xl sm:text-7xl md:text-8xl lg:text-[10rem] max-w-full" style={{ y: yPos }} viewport={{ once: true }}>
+      <motion.div className="text-center text-6xl sm:text-7xl md:text-8xl lg:text-[10rem] max-w-full" style={{ y: yPos }}>
         <span className="animate-flash ">{'>'}</span>
         {title}
       </motion.div>
