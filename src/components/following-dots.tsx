@@ -36,8 +36,9 @@ class Dot implements DotClass {
   }
 
   moveTowards(x: number, y: number, context: CanvasRenderingContext2D): void {
-    this.position.x += (x - this.position.x) / this.lag;
-    this.position.y += (y - this.position.y) / this.lag;
+    const smoothing = Math.max(1, this.lag / 2);
+    this.position.x += (x - this.position.x) / smoothing;
+    this.position.y += (y - this.position.y) / smoothing;
 
     context.fillStyle = this.color;
     context.beginPath();
@@ -49,21 +50,43 @@ class Dot implements DotClass {
 
 const FollowingCursor: React.FC<FollowingCursorProps> = ({ wrapperElement = null, dotSize = 10, dotLag = 10 }) => {
   const { theme } = useTheme();
-  const toggleTheme = () => {
-    if (theme == 'dark') {
-      return 'white';
-    } else {
-      return 'black';
-    }
-  };
-
-  const dotColor: 'white' | 'black' = toggleTheme();
+  const dotColor = theme === 'dark' ? 'white' : 'black';
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const cursorRef = useRef<Position>({ x: 0, y: 0 });
   const dotRef = useRef<Dot | null>(null);
   const animationFrameRef = useRef<number | null>(null);
   const elementRef = useRef<HTMLDivElement>(null);
+  const isScrollingRef = useRef(false);
+
+  const updateCanvasSize = () => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const dpr = window.devicePixelRatio || 1;
+    const context = canvas.getContext('2d');
+
+    if (wrapperElement && elementRef.current) {
+      // For wrapper element, use the wrapper's dimensions
+      const rect = elementRef.current.getBoundingClientRect();
+      canvas.width = rect.width * dpr;
+      canvas.height = rect.height * dpr;
+      canvas.style.width = `${rect.width}px`;
+      canvas.style.height = `${rect.height}px`;
+    } else {
+      // For full window, use document dimensions to account for scrolling
+      const docHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight, document.documentElement.offsetHeight, document.body.clientHeight, document.documentElement.clientHeight);
+
+      canvas.width = window.innerWidth * dpr;
+      canvas.height = docHeight * dpr;
+      canvas.style.width = `${window.innerWidth}px`;
+      canvas.style.height = `${docHeight}px`;
+    }
+
+    if (context) {
+      context.scale(dpr, dpr);
+    }
+  };
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -80,25 +103,16 @@ const FollowingCursor: React.FC<FollowingCursorProps> = ({ wrapperElement = null
       const context = canvas.getContext('2d');
       if (!context) return false;
 
-      const element = wrapperElement ? elementRef.current : document.body;
-      if (!element) return false;
-
-      canvas.style.top = '0px';
-      canvas.style.left = '0px';
+      canvas.style.position = wrapperElement ? 'absolute' : 'fixed';
+      canvas.style.top = '0';
+      canvas.style.left = '0';
       canvas.style.pointerEvents = 'none';
+      canvas.style.zIndex = '9999';
 
-      if (wrapperElement) {
-        canvas.style.position = 'absolute';
-        canvas.width = element.clientWidth;
-        canvas.height = element.clientHeight;
-      } else {
-        canvas.style.position = 'fixed';
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-      }
+      updateCanvasSize();
 
-      const centerX = canvas.width / 2;
-      const centerY = canvas.height / 2;
+      const centerX = canvas.width / (2 * (window.devicePixelRatio || 1));
+      const centerY = canvas.height / (2 * (window.devicePixelRatio || 1));
 
       cursorRef.current = { x: centerX, y: centerY };
       dotRef.current = new Dot(centerX, centerY, dotSize, dotLag, dotColor);
@@ -108,10 +122,9 @@ const FollowingCursor: React.FC<FollowingCursorProps> = ({ wrapperElement = null
 
     const onMouseMove = (e: MouseEvent): void => {
       if (!elementRef.current && !wrapperElement) {
-        // For body-level tracking, include scroll position only when not using a wrapper
         cursorRef.current = {
-          x: e.clientX + (wrapperElement ? 0 : window.scrollX),
-          y: e.clientY + (wrapperElement ? 0 : window.scrollY),
+          x: e.clientX,
+          y: e.clientY + window.scrollY,
         };
         return;
       }
@@ -119,26 +132,15 @@ const FollowingCursor: React.FC<FollowingCursorProps> = ({ wrapperElement = null
       if (elementRef.current) {
         const boundingRect = elementRef.current.getBoundingClientRect();
         cursorRef.current = {
-          x: e.clientX - boundingRect.left + (wrapperElement ? 0 : window.scrollX),
-          y: e.clientY - boundingRect.top + (wrapperElement ? 0 : window.scrollY),
+          x: e.clientX - boundingRect.left,
+          y: e.clientY - boundingRect.top,
         };
       }
     };
 
-    const onWindowResize = (): void => {
-      const canvas = canvasRef.current;
-      if (!canvas) return;
-
-      const element = wrapperElement ? elementRef.current : document.body;
-      if (!element) return;
-
-      if (wrapperElement) {
-        canvas.width = element.clientWidth;
-        canvas.height = element.clientHeight;
-      } else {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-      }
+    let resizeObserver: ResizeObserver | null = null;
+    const onResize = () => {
+      updateCanvasSize();
     };
 
     const updateDot = (): void => {
@@ -150,7 +152,10 @@ const FollowingCursor: React.FC<FollowingCursorProps> = ({ wrapperElement = null
       if (!context) return;
 
       context.clearRect(0, 0, canvas.width, canvas.height);
-      dot.moveTowards(cursorRef.current.x, cursorRef.current.y, context);
+
+      if (!isScrollingRef.current) {
+        dot.moveTowards(cursorRef.current.x, cursorRef.current.y, context);
+      }
     };
 
     const loop = (): void => {
@@ -160,21 +165,29 @@ const FollowingCursor: React.FC<FollowingCursorProps> = ({ wrapperElement = null
 
     const initialized = init();
     if (initialized) {
-      const element = wrapperElement ? elementRef.current : document.body;
+      const element = wrapperElement ? elementRef.current : window;
       if (!element) return;
 
-      element.addEventListener('mousemove', onMouseMove);
-      window.addEventListener('resize', onWindowResize);
-
-      // Add scroll event listener when not using wrapper
-      if (!wrapperElement) {
-        window.addEventListener('scroll', () => {
-          if (cursorRef.current) {
-            cursorRef.current.y += window.scrollY;
-          }
-        });
+      // Set up resize observer for the wrapper element
+      if (wrapperElement && elementRef.current) {
+        resizeObserver = new ResizeObserver(onResize);
+        resizeObserver.observe(elementRef.current);
       }
 
+      // Event listeners
+      window.addEventListener('mousemove', onMouseMove);
+      window.addEventListener('resize', onResize);
+      window.addEventListener('scroll', () => {
+        updateCanvasSize();
+        if (!wrapperElement) {
+          isScrollingRef.current = true;
+          setTimeout(() => {
+            isScrollingRef.current = false;
+          }, 50);
+        }
+      });
+
+      // Start animation loop
       loop();
 
       const handlePrefersMotionChange = (): void => {
@@ -190,29 +203,33 @@ const FollowingCursor: React.FC<FollowingCursorProps> = ({ wrapperElement = null
 
       prefersReducedMotion.addEventListener('change', handlePrefersMotionChange);
 
+      // Cleanup
       return () => {
         if (animationFrameRef.current !== null) {
           cancelAnimationFrame(animationFrameRef.current);
         }
-        element.removeEventListener('mousemove', onMouseMove);
-        window.removeEventListener('resize', onWindowResize);
-        if (!wrapperElement) {
-          window.removeEventListener('scroll', () => {});
-        }
+        window.removeEventListener('mousemove', onMouseMove);
+        window.removeEventListener('resize', onResize);
+        window.removeEventListener('scroll', () => {});
         prefersReducedMotion.removeEventListener('change', handlePrefersMotionChange);
+        if (resizeObserver) {
+          resizeObserver.disconnect();
+        }
       };
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [wrapperElement, dotSize, dotLag, dotColor]);
 
   return (
     <>
-      {wrapperElement && (
+      {wrapperElement ? (
         <div ref={elementRef} className="relative w-full h-full">
           {wrapperElement}
           <canvas ref={canvasRef} className="absolute top-0 left-0 z-50" />
         </div>
+      ) : (
+        <canvas ref={canvasRef} />
       )}
-      {!wrapperElement && <canvas ref={canvasRef} />}
     </>
   );
 };
