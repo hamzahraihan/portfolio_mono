@@ -207,9 +207,9 @@ const FollowingCursor: React.FC<FollowingCursorProps> = ({ wrapperElement = null
   return (
     <>
       {wrapperElement && (
-        <div ref={elementRef} className="relative w-full h-fit">
+        <div ref={elementRef} className="relative w-full h-full">
           {wrapperElement}
-          <canvas ref={canvasRef} className="absolute top-0 left-0" />
+          <canvas ref={canvasRef} className="absolute top-0 left-0 z-50" />
         </div>
       )}
       {!wrapperElement && <canvas ref={canvasRef} />}
