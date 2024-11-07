@@ -1,6 +1,5 @@
 import { Questrial } from 'next/font/google';
 import './globals.css';
-import FollowingCursor from '../components/following-dots';
 import { ThemeProvider } from '../components/theme-provider';
 import Navigation from '../components/navigation';
 import SmoothScroll from '@/components/smooth-scroll';
@@ -20,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${questrial.className} antialiased transition-colors duration-300`}>
         <ThemeProvider attribute="class" defaultTheme="dark">
-          <FollowingCursor dotSize={12} dotLag={20} wrapperElement={<SmoothScroll navigation={<Navigation />}>{children}</SmoothScroll>} />
+          <SmoothScroll navigation={<Navigation />}>{children}</SmoothScroll>
         </ThemeProvider>
       </body>
     </html>
