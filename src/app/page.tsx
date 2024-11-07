@@ -13,10 +13,7 @@ export default function Home() {
     <main className="max-w-full h-full">
       <HeroPage />
       <BigText title="software_engineer" />
-      <BigText title="software_engineer" />
-      <BigText title="software_engineer" />
-      <BigText title="software_engineer" />
-      <BigText title="software_engineer" />
+
       <AboutPage />
     </main>
   );
