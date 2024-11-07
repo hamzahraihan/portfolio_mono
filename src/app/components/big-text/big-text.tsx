@@ -11,7 +11,7 @@ function BigText({ title = '' }: Readonly<{ title: string }>) {
   });
 
   // Transform scrollYProgress (0 to 1) into y position (100px to 0)
-  const yPos = useTransform(scrollYProgress, [0, 1], [300, 0]);
+  const yPos = useTransform(scrollYProgress, [0, 1], [200, 0]);
 
   return (
     <div ref={ref} className="h-fit overflow-hidden">
