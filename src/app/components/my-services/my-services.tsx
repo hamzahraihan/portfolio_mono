@@ -1,0 +1,55 @@
+'use client';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+
+function MyServicePage() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ['start end', 'center center'],
+  });
+
+  const string =
+    "I deliver comprehensive digital solutions tailored to your unique business needs. Through my expertise in web and mobile development. Whether you need a campaign built from scratch or assistance at a specific phase, I've got you covered.";
+
+  const words = string.split(' ');
+
+  // Create transform function for each word
+  const getYPos = (index: number) => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    return useTransform(
+      scrollYProgress,
+      [0, 1],
+      [10 + index * 2, 0], // Smoother progression with index * 2
+      { clamp: false }
+    );
+  };
+
+  const getOpacity = () => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    return useTransform(scrollYProgress, [0, 1], [0, 1]);
+  };
+
+  return (
+    <div className="flex flex-col gap-16 mx-auto max-w-2xl my-10">
+      <h1 className="text-lg">My Service</h1>
+      <div ref={containerRef} className="flex flex-wrap gap-x-2">
+        {words.map((word, i) => (
+          <div key={i} className="overflow-hidden">
+            <motion.p
+              className="text-3xl font-medium"
+              style={{
+                y: getYPos(i),
+                opacity: getOpacity(),
+              }}
+            >
+              {word}
+            </motion.p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export { MyServicePage };
