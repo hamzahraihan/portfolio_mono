@@ -4,7 +4,7 @@ import React from 'react';
 
 function AccordionList({ id, description, title }: Readonly<DatasProps>) {
   return (
-    <AccordionItem value={`item-${id}`} className="border-neutral-300 dark:border-neutral-800">
+    <AccordionItem value={`item-${id}`} className="border-neutral-300 dark:border-neutral-600">
       <AccordionTrigger className="max-w-[40rem] mx-auto">{title}</AccordionTrigger>
       <AccordionContent className="relative">
         {description.map((desc, i) => (
