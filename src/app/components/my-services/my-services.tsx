@@ -1,6 +1,7 @@
 'use client';
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 function MyServicePage() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -54,4 +55,29 @@ function MyServicePage() {
   );
 }
 
-export { MyServicePage };
+function ServicesList() {
+  return (
+    <div className="max-w-full">
+      <Accordion type="multiple">
+        <AccordionItem value="item-1">
+          <AccordionTrigger>Is it accessible?</AccordionTrigger>
+          <AccordionContent className="hover:bg-white hover:text-neutral-900 transition-colors duration-150 ease-in-out">Yes. It adheres to the WAI-ARIA design pattern.</AccordionContent>
+        </AccordionItem>
+        <AccordionItem value="item-2">
+          <AccordionTrigger>Is it accessible?</AccordionTrigger>
+          <AccordionContent>Yes. It adheres to the WAI-ARIA design pattern.</AccordionContent>
+        </AccordionItem>
+        <AccordionItem value="item-3">
+          <AccordionTrigger>Is it accessible?</AccordionTrigger>
+          <AccordionContent>Yes. It adheres to the WAI-ARIA design pattern.</AccordionContent>
+        </AccordionItem>
+        <AccordionItem value="item-4">
+          <AccordionTrigger>Is it accessible?</AccordionTrigger>
+          <AccordionContent>Yes. It adheres to the WAI-ARIA design pattern.</AccordionContent>
+        </AccordionItem>
+      </Accordion>
+    </div>
+  );
+}
+
+export { MyServicePage, ServicesList };
