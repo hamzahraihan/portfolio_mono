@@ -57,23 +57,34 @@ function MyServicePage() {
 
 function ServicesList() {
   return (
-    <div className="max-w-full">
-      <Accordion type="multiple">
+    <div className="max-w-full my-36">
+      <Accordion type="single" collapsible className="w-full">
         <AccordionItem value="item-1">
-          <AccordionTrigger>Is it accessible?</AccordionTrigger>
-          <AccordionContent className="hover:bg-white hover:text-neutral-900 transition-colors duration-150 ease-in-out">Yes. It adheres to the WAI-ARIA design pattern.</AccordionContent>
+          <AccordionTrigger className="max-w-[40rem] mx-auto">Is it accessible?</AccordionTrigger>
+          <AccordionContent className="relative">
+            <div className="group relative w-full ">
+              <p className="relative max-w-[40rem] mx-auto text-start z-10 transition-colors duration-300 group-hover:text-neutral-100 dark:group-hover:text-neutral-900">Yes. It adheres to the WAI-ARIA design pattern.</p>
+              <div className="absolute inset-0 origin-bottom scale-y-0 bg-neutral-900 dark:bg-neutral-100 transition-transform duration-300 ease-out group-hover:scale-y-100" />
+            </div>
+          </AccordionContent>
         </AccordionItem>
         <AccordionItem value="item-2">
-          <AccordionTrigger>Is it accessible?</AccordionTrigger>
-          <AccordionContent>Yes. It adheres to the WAI-ARIA design pattern.</AccordionContent>
+          <AccordionTrigger className="max-w-[40rem] mx-auto">Is it accessible?</AccordionTrigger>
+          <AccordionContent className="relative">
+            <div className="group relative w-full ">
+              <p className="relative max-w-[40rem] mx-auto text-start z-10 transition-colors duration-300 group-hover:text-neutral-100 dark:group-hover:text-neutral-900">Yes. It adheres to the WAI-ARIA design pattern.</p>
+              <div className="absolute inset-0 origin-bottom scale-y-0 bg-neutral-900 dark:bg-neutral-100 transition-transform duration-300 ease-out group-hover:scale-y-100" />
+            </div>
+          </AccordionContent>
         </AccordionItem>
         <AccordionItem value="item-3">
-          <AccordionTrigger>Is it accessible?</AccordionTrigger>
-          <AccordionContent>Yes. It adheres to the WAI-ARIA design pattern.</AccordionContent>
-        </AccordionItem>
-        <AccordionItem value="item-4">
-          <AccordionTrigger>Is it accessible?</AccordionTrigger>
-          <AccordionContent>Yes. It adheres to the WAI-ARIA design pattern.</AccordionContent>
+          <AccordionTrigger className="max-w-[40rem] mx-auto">Is it accessible?</AccordionTrigger>
+          <AccordionContent className="relative">
+            <div className="group relative w-full ">
+              <p className="relative max-w-[40rem] mx-auto text-start z-10 transition-colors duration-300 group-hover:text-neutral-100 dark:group-hover:text-neutral-900">Yes. It adheres to the WAI-ARIA design pattern.</p>
+              <div className="absolute inset-0 origin-bottom scale-y-0 bg-neutral-900 dark:bg-neutral-100 transition-transform duration-300 ease-out group-hover:scale-y-100" />
+            </div>
+          </AccordionContent>
         </AccordionItem>
       </Accordion>
     </div>
