@@ -32,7 +32,7 @@ function MyServicePage() {
 
   return (
     <div className="flex flex-col gap-16 mx-auto max-w-2xl my-10">
-      <h1 className="text-lg">My Service</h1>
+      <h1 className="text-lg">MY SERVICES</h1>
       <div ref={containerRef} className="flex flex-wrap gap-x-2">
         {words.map((word, i) => (
           <div key={i} className="overflow-hidden">
