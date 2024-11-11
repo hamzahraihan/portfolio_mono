@@ -4,7 +4,7 @@ export type DatasProps = {
   description: string[];
 };
 
-const datas = [
+const datas: DatasProps[] = [
   {
     id: 1,
     title: 'Design',
