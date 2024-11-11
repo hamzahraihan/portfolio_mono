@@ -1,7 +1,9 @@
 'use client';
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { Accordion } from '@/components/ui/accordion';
+import AccordionList from './accordion-list';
+import { datas } from '@/datas';
 
 function MyServicePage() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -56,36 +58,14 @@ function MyServicePage() {
 }
 
 function ServicesList() {
+  console.log(datas);
+
   return (
     <div className="max-w-full my-36">
-      <Accordion type="single" collapsible className="w-full">
-        <AccordionItem value="item-1">
-          <AccordionTrigger className="max-w-[40rem] mx-auto">Is it accessible?</AccordionTrigger>
-          <AccordionContent className="relative">
-            <div className="group relative w-full ">
-              <p className="relative max-w-[40rem] mx-auto text-start z-10 transition-colors duration-300 group-hover:text-neutral-100 dark:group-hover:text-neutral-900">Yes. It adheres to the WAI-ARIA design pattern.</p>
-              <div className="absolute inset-0 origin-bottom scale-y-0 bg-neutral-900 dark:bg-neutral-100 transition-transform duration-300 ease-out group-hover:scale-y-100" />
-            </div>
-          </AccordionContent>
-        </AccordionItem>
-        <AccordionItem value="item-2">
-          <AccordionTrigger className="max-w-[40rem] mx-auto">Is it accessible?</AccordionTrigger>
-          <AccordionContent className="relative">
-            <div className="group relative w-full ">
-              <p className="relative max-w-[40rem] mx-auto text-start z-10 transition-colors duration-300 group-hover:text-neutral-100 dark:group-hover:text-neutral-900">Yes. It adheres to the WAI-ARIA design pattern.</p>
-              <div className="absolute inset-0 origin-bottom scale-y-0 bg-neutral-900 dark:bg-neutral-100 transition-transform duration-300 ease-out group-hover:scale-y-100" />
-            </div>
-          </AccordionContent>
-        </AccordionItem>
-        <AccordionItem value="item-3">
-          <AccordionTrigger className="max-w-[40rem] mx-auto">Is it accessible?</AccordionTrigger>
-          <AccordionContent className="relative">
-            <div className="group relative w-full ">
-              <p className="relative max-w-[40rem] mx-auto text-start z-10 transition-colors duration-300 group-hover:text-neutral-100 dark:group-hover:text-neutral-900">Yes. It adheres to the WAI-ARIA design pattern.</p>
-              <div className="absolute inset-0 origin-bottom scale-y-0 bg-neutral-900 dark:bg-neutral-100 transition-transform duration-300 ease-out group-hover:scale-y-100" />
-            </div>
-          </AccordionContent>
-        </AccordionItem>
+      <Accordion type="single" collapsible className="w-full ">
+        {datas.map((data) => (
+          <AccordionList key={data.id} id={data.id} title={data.title} description={data.description} />
+        ))}
       </Accordion>
     </div>
   );
