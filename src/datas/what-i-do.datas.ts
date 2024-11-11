@@ -18,7 +18,7 @@ const datas = [
   {
     id: 3,
     title: 'Mobile Development',
-    description: ['Flutter', 'Dart'],
+    description: ['Flutter', 'Dart', 'React Native'],
   },
 ];
 
