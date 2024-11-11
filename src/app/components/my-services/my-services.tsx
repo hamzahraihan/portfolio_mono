@@ -62,7 +62,7 @@ function ServicesList() {
 
   return (
     <div className="max-w-full my-36">
-      <Accordion type="single" collapsible className="w-full ">
+      <Accordion type="single" collapsible className="w-full">
         {datas.map((data) => (
           <AccordionList key={data.id} id={data.id} title={data.title} description={data.description} />
         ))}
