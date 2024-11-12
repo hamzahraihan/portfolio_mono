@@ -8,7 +8,7 @@ const datas: DatasProps[] = [
   {
     id: 1,
     title: 'Design',
-    description: ['UI UX Design'],
+    description: ['UI/UX Design', 'Figma'],
   },
   {
     id: 2,
