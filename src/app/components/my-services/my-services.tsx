@@ -34,12 +34,12 @@ function MyServicePage() {
   };
 
   return (
-    <div className="border-b border-neutral-200 dark:border-neutral-800 pb-36">
+    <div className="pb-4">
       <div className="flex flex-col gap-16 mx-auto my-10 max-w-2xl">
         <h1 className="text-lg">MY SERVICES</h1>
         <div ref={containerRef} className="flex flex-wrap gap-x-2">
           {words.map((word, i) => (
-            <div key={i} className="overflow-hidden">
+            <div key={`${word[i]} ${i}`} className="overflow-hidden">
               <motion.p
                 className="text-3xl font-medium"
                 style={{
@@ -59,7 +59,7 @@ function MyServicePage() {
 
 function ServicesList() {
   return (
-    <div className="max-w-full my-36">
+    <div className="max-w-full my-16">
       <Accordion type="single" collapsible className="w-full">
         {datas.map((data) => (
           <AccordionList key={data.id} id={data.id} title={data.title} description={data.description} />
@@ -69,4 +69,14 @@ function ServicesList() {
   );
 }
 
-export { MyServicePage, ServicesList };
+function ContactCallToAction() {
+  return (
+    <div className="mx-auto my-16 max-w-2xl">
+      <div className="w-60">
+        <p>Got a project in mind? Drop me a line at hamzahraihanif@gmail.com or use the form below.</p>
+      </div>
+    </div>
+  );
+}
+
+export { MyServicePage, ServicesList, ContactCallToAction };
