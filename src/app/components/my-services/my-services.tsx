@@ -18,7 +18,7 @@ function MyServicePage() {
   const words = string.split(' ');
 
   // Create transform function for each word
-  const getYPos = (index: number) => {
+  const GetYPos = (index: number) => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     return useTransform(
       scrollYProgress,
@@ -28,7 +28,7 @@ function MyServicePage() {
     );
   };
 
-  const getOpacity = () => {
+  const GetOpacity = () => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     return useTransform(scrollYProgress, [0, 1], [0, 1]);
   };
@@ -43,8 +43,8 @@ function MyServicePage() {
               <motion.p
                 className="text-3xl font-medium"
                 style={{
-                  y: getYPos(i),
-                  opacity: getOpacity(),
+                  y: GetYPos(i),
+                  opacity: GetOpacity(),
                 }}
               >
                 {word}
