@@ -73,7 +73,7 @@ function ContactCallToAction() {
   return (
     <div className="mx-auto my-16 max-w-2xl">
       <div className="w-60">
-        <p>See my other projects</p>
+        <button className="">See my other projects</button>
       </div>
     </div>
   );
