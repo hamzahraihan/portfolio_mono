@@ -5,7 +5,7 @@ import React from 'react';
 function AccordionList({ id, description, title }: Readonly<DatasProps>) {
   return (
     <AccordionItem value={`item-${id}`} className="border-neutral-300 dark:border-neutral-600">
-      <AccordionTrigger className="max-w-[40rem] mx-auto">{title}</AccordionTrigger>
+      <AccordionTrigger className="max-w-[40rem] mx-auto text-lg">{title}</AccordionTrigger>
       <AccordionContent className="relative">
         {description.map((desc, i) => (
           <div key={i} className="group relative w-full py-2">
