@@ -13,7 +13,7 @@ function MyServicePage() {
   });
 
   const string =
-    "I deliver comprehensive digital solutions tailored to your unique business needs. Through my expertise in web and mobile development. Whether you need a campaign built from scratch or assistance at a specific phase, I've got you covered.";
+    "I deliver comprehensive digital solutions tailored to your unique business needs. Through my expertise in web and mobile development. Whether you need an application built from scratch or a help to improve your existing app, I've got you covered.";
 
   const words = string.split(' ');
 
@@ -58,8 +58,6 @@ function MyServicePage() {
 }
 
 function ServicesList() {
-  console.log(datas);
-
   return (
     <div className="max-w-full my-36">
       <Accordion type="single" collapsible className="w-full">
