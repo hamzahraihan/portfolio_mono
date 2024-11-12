@@ -4,6 +4,7 @@ import { useTheme } from 'next-themes';
 import { Switch } from './ui/switch';
 import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 function Navigation() {
   const { theme, setTheme } = useTheme();
@@ -27,18 +28,20 @@ function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [isNavbarVisible]);
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      const headerHeight = 48; // Height of your fixed header
-      const elementTop = element.offsetTop - headerHeight;
+  // const scrollToSection = (id: string) => {
+  //   const element = document.getElementById(id);
+  //   if (element) {
+  //     const headerHeight = 48; // Height of your fixed header
+  //     const elementTop = element.offsetTop - headerHeight;
 
-      window.scrollTo({
-        top: elementTop,
-        behavior: 'smooth',
-      });
-    }
-  };
+  //     window.scrollTo({
+  //       top: elementTop,
+  //       behavior: 'smooth',
+  //     });
+  //   }
+  // };
+
+  const { push } = useRouter();
 
   return (
     <motion.div
@@ -47,18 +50,18 @@ function Navigation() {
       animate={!isPageTop && isNavbarVisible ? { y: -100 } : { y: 0 }}
       transition={{ duration: 0.5, type: 'spring', damping: 20, stiffness: 100, restDelta: 0.001 }}
     >
-      <button onClick={() => scrollToSection('hero')}>hamzahraihan</button>
+      <button onClick={() => push('/')}>hamzahraihan</button>
       <Switch onClick={() => setTheme(theme == 'dark' ? 'light' : 'dark')} checked={theme != 'light'} />
       <div className="flex gap-20 h-12">
         <div className="after:duration-200 ease-out after:block after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-900 after:dark:bg-neutral-300 after:transition-transform after:hover:origin-bottom-left after:hover:scale-x-100 h-full">
-          <button className="flex h-full items-center" onClick={() => scrollToSection('what-i-do')}>
-            <p>What i do</p>
+          <button className="flex h-full items-center" onClick={() => push('/about')}>
+            <p>About</p>
           </button>
         </div>
         <div className="after:duration-200 ease-out after:block after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-900 after:dark:bg-neutral-300 after:transition-transform after:hover:origin-bottom-left after:hover:scale-x-100">
-          <div className="flex h-full items-center">
-            <p>Who am i</p>
-          </div>
+          <button className="flex h-full items-center" onClick={() => push('/projects')}>
+            <p>Work</p>
+          </button>
         </div>
         <div className="after:duration-200 ease-out after:block after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-900 after:dark:bg-neutral-300 after:transition-transform after:hover:origin-bottom-left after:hover:scale-x-100">
           <div className="flex h-full items-center">
