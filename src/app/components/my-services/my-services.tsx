@@ -73,7 +73,7 @@ function ContactCallToAction() {
   return (
     <div className="mx-auto my-16 max-w-2xl">
       <div className="w-60">
-        <p>Got a project in mind? Drop me a line at hamzahraihanif@gmail.com or use the form below.</p>
+        <p>See my other projects</p>
       </div>
     </div>
   );
