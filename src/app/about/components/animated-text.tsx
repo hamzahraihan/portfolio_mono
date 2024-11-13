@@ -31,7 +31,7 @@ const AnimatedText = () => {
     <div ref={containerRef} className="flex flex-wrap">
       {letters.map((letter, i) => (
         <div key={`${letter}-${i}`}>
-          <motion.span className="text-[13rem] font-medium flex justify-center h-36 white" style={{ opacity: opacityArray[i], y: springArray[i] }}>
+          <motion.span className="text-[20rem] font-medium flex justify-center h-96 white" style={{ opacity: opacityArray[i], y: springArray[i] }}>
             {letter === ' ' ? '\u00A0' : letter}
           </motion.span>
         </div>
