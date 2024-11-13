@@ -3,6 +3,7 @@ import './globals.css';
 import { ThemeProvider } from '../components/theme-provider';
 import Navigation from '../components/navigation';
 import SmoothScroll from '@/components/smooth-scroll';
+import Transition from './transition';
 
 const questrial = Questrial({
   subsets: ['latin'],
@@ -19,7 +20,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${questrial.className} antialiased transition-colors duration-300`}>
         <ThemeProvider attribute="class" defaultTheme="dark">
-          <SmoothScroll navigation={<Navigation />}>{children}</SmoothScroll>
+          <Transition>
+            <SmoothScroll navigation={<Navigation />}>{children}</SmoothScroll>
+          </Transition>
         </ThemeProvider>
       </body>
     </html>
