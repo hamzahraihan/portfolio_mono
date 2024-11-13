@@ -4,7 +4,7 @@ import { useTheme } from 'next-themes';
 import { Switch } from './ui/switch';
 import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 function Navigation() {
   const { theme, setTheme } = useTheme();
@@ -41,8 +41,6 @@ function Navigation() {
   //   }
   // };
 
-  const { push } = useRouter();
-
   return (
     <motion.div
       className="p-4 min-w-full flex justify-between items-center border-b dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900 text-sm h-12 z-10"
@@ -50,18 +48,18 @@ function Navigation() {
       animate={!isPageTop && isNavbarVisible ? { y: -100 } : { y: 0 }}
       transition={{ duration: 0.5, type: 'spring', damping: 20, stiffness: 100, restDelta: 0.001 }}
     >
-      <button onClick={() => push('/')}>hamzahraihan</button>
+      <Link href="/">hamzahraihan</Link>
       <Switch onClick={() => setTheme(theme == 'dark' ? 'light' : 'dark')} checked={theme != 'light'} />
       <div className="flex gap-20 h-12">
         <div className="after:duration-200 ease-out after:block after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-900 after:dark:bg-neutral-300 after:transition-transform after:hover:origin-bottom-left after:hover:scale-x-100 h-full">
-          <button className="flex h-full items-center" onClick={() => push('/about')}>
+          <Link href="/about" className="flex h-full items-center">
             <p>About</p>
-          </button>
+          </Link>
         </div>
         <div className="after:duration-200 ease-out after:block after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-900 after:dark:bg-neutral-300 after:transition-transform after:hover:origin-bottom-left after:hover:scale-x-100">
-          <button className="flex h-full items-center" onClick={() => push('/projects')}>
+          <Link href="/projects" className="flex h-full items-center">
             <p>Work</p>
-          </button>
+          </Link>
         </div>
         <div className="after:duration-200 ease-out after:block after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-900 after:dark:bg-neutral-300 after:transition-transform after:hover:origin-bottom-left after:hover:scale-x-100">
           <div className="flex h-full items-center">
