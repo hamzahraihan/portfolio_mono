@@ -8,7 +8,6 @@ const AnimatedText = () => {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ['start start', 'end end'],
   });
 
   const string = 'BASED IN INDONESIA';
@@ -17,12 +16,12 @@ const AnimatedText = () => {
 
   const opacityArray = letters.map((_, i) => {
     const reverseIndex = totalLetters - 1 - i;
-    return useTransform(scrollYProgress, [reverseIndex * 0.000002, (reverseIndex + 1) * 0.02], [1, 0]);
+    return useTransform(scrollYProgress, [reverseIndex * 0.002, (reverseIndex + 1) * 0.02], [1, 0]);
   });
 
   const yArray = letters.map((_, i) => {
     const reverseIndex = totalLetters - 1 - i;
-    return useTransform(scrollYProgress, [reverseIndex * 0.002, (reverseIndex + 1) * 0.02], [0, 50]);
+    return useTransform(scrollYProgress, [reverseIndex * 0.02, (reverseIndex + 1) * 0.02], [0, 50]);
   });
 
   const physics = { damping: 15, mass: 0.1, stiffness: 100 };
