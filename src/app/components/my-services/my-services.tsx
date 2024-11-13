@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { Accordion } from '@/components/ui/accordion';
 import AccordionList from './accordion-list';
 import { datas } from '@/datas';
+import Link from 'next/link';
 
 function MyServicePage() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -69,14 +70,17 @@ function ServicesList() {
   );
 }
 
-function ContactCallToAction() {
+function OtherProjectCTA() {
   return (
     <div className="mx-auto my-16 max-w-2xl">
-      <div className="w-60">
-        <button className="">See my other projects</button>
+      <div className="group relative w-fit overflow-hidden rounded-lg">
+        <Link href="/projects" className="group relative rounded-lg p-2 z-10 transition-colors duration-300 group-hover:text-neutral-100 dark:group-hover:text-neutral-900">
+          See my other projects
+        </Link>
+        <div className="absolute inset-0 origin-bottom scale-y-0 bg-neutral-900 dark:bg-neutral-100 transition-transform duration-300 ease-out group-hover:scale-y-100" />
       </div>
     </div>
   );
 }
 
-export { MyServicePage, ServicesList, ContactCallToAction };
+export { MyServicePage, ServicesList, OtherProjectCTA };
