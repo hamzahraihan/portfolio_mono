@@ -8,30 +8,33 @@ const AnimatedText = () => {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
+    offset: ['center center', 'start end'],
   });
 
   const string = 'BASED IN INDONESIA';
   const letters = string.split('');
+  console.log('🚀 ~ AnimatedText ~ letters:', letters);
   const totalLetters = letters.length;
 
   const opacityArray = letters.map((_, i) => {
     const reverseIndex = totalLetters - 1 - i;
-    return useTransform(scrollYProgress, [reverseIndex * 0.002, (reverseIndex + 1) * 0.02], [1, 0]);
+
+    return useTransform(scrollYProgress, [reverseIndex * 0.02, (reverseIndex + 1) * 0.05], [1, 0], { clamp: false });
   });
 
   const yArray = letters.map((_, i) => {
     const reverseIndex = totalLetters - 1 - i;
-    return useTransform(scrollYProgress, [reverseIndex * 0.02, (reverseIndex + 1) * 0.02], [0, 50]);
+    return useTransform(scrollYProgress, [reverseIndex * 0.02, (reverseIndex + 1) * 0.05], [0, 50]);
   });
 
-  const physics = { damping: 15, mass: 0.1, stiffness: 100 };
+  const physics = { damping: 15, mass: 0.1, stiffness: 200 };
   const springArray = yArray.map((y) => useSpring(y, physics));
 
   return (
     <div ref={containerRef} className="flex flex-wrap">
       {letters.map((letter, i) => (
         <div key={`${letter}-${i}`}>
-          <motion.span className="text-[20rem] font-medium flex justify-center h-96 white" style={{ opacity: opacityArray[i], y: springArray[i] }}>
+          <motion.span className="text-[10rem] font-medium flex justify-center h-36 white" style={{ opacity: opacityArray[i], y: springArray[i] }}>
             {letter === ' ' ? '\u00A0' : letter}
           </motion.span>
         </div>
