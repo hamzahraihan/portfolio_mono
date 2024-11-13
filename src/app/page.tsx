@@ -2,7 +2,8 @@ import type { Metadata } from 'next';
 import { BigText } from './components/big-text';
 import { HeroPage } from './components/hero';
 import { AboutPage } from './components/about';
-import { ContactCallToAction, MyServicePage } from './components/my-services';
+import { OtherProjectCTA, MyServicePage } from './components/my-services';
+import { ContactSection } from './components/contact';
 
 export const metadata: Metadata = {
   title: 'Hamzah Raihan',
@@ -16,8 +17,8 @@ export default function Home() {
       <BigText title="software_engineer" />
       <AboutPage />
       <MyServicePage />
-      <ContactCallToAction />
-      <div className="h-[100rem]"></div>
+      <OtherProjectCTA />
+      <ContactSection />
     </main>
   );
 }
