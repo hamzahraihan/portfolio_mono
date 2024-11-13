@@ -19,9 +19,26 @@ function ContactSection() {
       <div className="flex flex-col gap-1">
         <p>( socials )</p>
         <ul className="flex gap-2 ">
-          <li>IG</li>
-          <li>LI</li>
-          <li>GH</li>
+          <li>
+            <a href="https://www.instagram.com/hamzah_raihan/" target="_blank" rel="noreferrer noopener" className="text-neutral-700 dark:text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100 duration-100">
+              IG
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/hamzah-raihan-ikhsanul-fikri-786b101a1/"
+              target="_blank"
+              rel="noreferrer noopener"
+              className="text-neutral-700 dark:text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100 duration-100"
+            >
+              LI
+            </a>
+          </li>
+          <li>
+            <a href="https://www.github.com/hamzahraihan/" target="_blank" rel="noreferrer noopener" className="text-neutral-700 dark:text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100 duration-100">
+              GH
+            </a>
+          </li>
         </ul>
       </div>
       <div className="flex flex-col text-center">
