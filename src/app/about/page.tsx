@@ -11,7 +11,7 @@ function AboutPage() {
   return (
     <div className="container max-w-full my-20 h-[1000vh]">
       <AnimatedText firstString="WEB &" secondString="MOBILE DEV" reverse={false} className="text-[32vh] font-bold inline-block whitespace-nowrap leading-[24vh]" />
-      <AnimatedText firstString="BASED IN" secondString="INDONESIA" reverse={true} className="text-[15rem] font-bold flex justify-end h-64" />
+      <AnimatedText firstString="BASED IN" secondString="INDONESIA" reverse={true} className="text-[32vh] font-bold inline-block whitespace-nowrap leading-[24vh]" />
     </div>
   );
 }
