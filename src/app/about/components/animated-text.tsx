@@ -11,34 +11,50 @@ const AnimatedText = () => {
     offset: ['center center', 'start end'],
   });
 
-  const string = 'BASED IN INDONESIA';
-  const letters = string.split('');
-  console.log('🚀 ~ AnimatedText ~ letters:', letters);
-  const totalLetters = letters.length;
+  const firstString = 'BASED IN';
+  const secondString = 'INDONESIA';
 
-  const opacityArray = letters.map((_, i) => {
-    const reverseIndex = totalLetters - 1 - i;
+  const firstLetters = firstString.split('');
+  const secondLetters = secondString.split('');
 
-    return useTransform(scrollYProgress, [reverseIndex * 0.02, (reverseIndex + 1) * 0.05], [1, 0], { clamp: false });
-  });
+  const handleAnimatedText = (letters: string[]) => {
+    const totalLetters = letters.length;
+    const opacityArray = letters.map((_, i) => {
+      const reverseIndex = totalLetters - 1 - i;
 
-  const yArray = letters.map((_, i) => {
-    const reverseIndex = totalLetters - 1 - i;
-    return useTransform(scrollYProgress, [reverseIndex * 0.02, (reverseIndex + 1) * 0.05], [0, 50]);
-  });
+      return useTransform(scrollYProgress, [reverseIndex * 0.02, (reverseIndex + 1) * 0.05], [1, 0], { clamp: false });
+    });
 
-  const physics = { damping: 15, mass: 0.1, stiffness: 200 };
-  const springArray = yArray.map((y) => useSpring(y, physics));
+    const yArray = letters.map((_, i) => {
+      const reverseIndex = totalLetters - 1 - i;
+      return useTransform(scrollYProgress, [reverseIndex * 0.02, (reverseIndex + 1) * 0.05], [0, 210]);
+    });
+
+    const physics = { damping: 15, mass: 0.1, stiffness: 200 };
+    const springArray = yArray.map((y) => useSpring(y, physics));
+    return { opacityArray, springArray };
+  };
 
   return (
-    <div ref={containerRef} className="flex flex-wrap">
-      {letters.map((letter, i) => (
-        <div key={`${letter}-${i}`}>
-          <motion.span className="text-[10rem] font-medium flex justify-center h-36 white" style={{ opacity: opacityArray[i], y: springArray[i] }}>
-            {letter === ' ' ? '\u00A0' : letter}
-          </motion.span>
-        </div>
-      ))}
+    <div ref={containerRef} className="container max-w-full flex justify-end px-6  flex-col">
+      <div className="flex flex-wrap justify-end">
+        {firstLetters.map((letter, i) => (
+          <div key={`${letter}-${i}`}>
+            <motion.span className="text-[17rem] font-bold flex justify-end h-64" style={{ opacity: handleAnimatedText(firstLetters).opacityArray[i], y: handleAnimatedText(firstLetters).springArray[i] }}>
+              {letter === ' ' ? '\u00A0' : letter}
+            </motion.span>
+          </div>
+        ))}
+      </div>
+      <div className="flex flex-wrap justify-end">
+        {secondLetters.map((letter, i) => (
+          <div key={`${letter}-${i}`}>
+            <motion.span className="text-[17rem] font-bold flex justify-end h-64" style={{ opacity: handleAnimatedText(secondLetters).opacityArray[i], y: handleAnimatedText(secondLetters).springArray[i] }}>
+              {letter === ' ' ? '\u00A0' : letter}
+            </motion.span>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
