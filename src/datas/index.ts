@@ -1,1 +1,1 @@
-export * from './what-i-do.datas';
+export * from './collections';
