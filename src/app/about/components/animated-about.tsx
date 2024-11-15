@@ -9,16 +9,17 @@ type SectionProps = {
   id: number;
   position: 'left' | 'right';
   links?: Array<{ title: string; link: string }>;
+  gap: boolean;
 };
 
-function IntroductionSection({ texts, title, id, position, links }: Readonly<SectionProps>) {
+function IntroductionSection({ texts, title, id, position, links, gap }: Readonly<SectionProps>) {
   return (
     <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1, delay: 0.3 }} viewport={{ once: true }} className={`h-fit w-[40vw] px-10 py-5 ${position == 'right' ? '' : 'ml-auto'} `}>
       <h1 className="pb-2 flex items-center gap-1">
         {id} <div className="w-2 h-0.5 rounded-lg bg-white" /> {title}
       </h1>
       <div className="border-t border-l border-neutral-500 p-3 lowercase">
-        <div className="flex flex-col gap-2">
+        <div className={`flex flex-col ${gap && 'gap-2'}`}>
           {texts.map((text, i) => (
             <div key={i + 2} className="text-[2vh]">
               {text}{' '}
