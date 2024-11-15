@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import React from 'react';
-import AnimatedText from './components/animated-text';
+import AnimatedHeader from './components/animated-header';
 import Image from 'next/image';
-import IntroductionSection from './components/introduction';
+import IntroductionSection from './components/animated-about';
 
 export const metadata: Metadata = {
   title: 'About - Hamzah Raihan',
@@ -25,14 +25,21 @@ function AboutPage() {
         </div>
       </div>
       <div className="h-[150vh]">
-        <AnimatedText firstString="WEB &" secondString="MOBILE DEV" reverse={false} className="text-[32vh] font-bold inline-block whitespace-nowrap leading-[24vh]" />
+        <AnimatedHeader firstString="WEB &" secondString="MOBILE DEV" reverse={false} className="text-[32vh] font-bold inline-block whitespace-nowrap leading-[24vh]" />
         <div className="flex justify-center items-center py-20 text-xs">
           <div className="w-56 text-center uppercase text-neutral-500">Driven by a spirit of curiosity, his interests encompass language arts, literature, visual design, film and music.</div>
         </div>
-        <AnimatedText firstString="BASED IN" secondString="INDONESIA" reverse={true} className="text-[32vh] font-bold inline-block whitespace-nowrap leading-[24vh]" />
+        <AnimatedHeader firstString="BASED IN" secondString="INDONESIA" reverse={true} className="text-[32vh] font-bold inline-block whitespace-nowrap leading-[24vh]" />
       </div>
 
-      <IntroductionSection />
+      <IntroductionSection
+        texts={[
+          'Hamzah is a fullstack developer based in Indonesia. Driven by a spirit of curiosity, his interests encompass language, the arts, literature, visual design, digital media, and music. With a particular passion for coding and design,',
+          ' Hamzah creates powerful both mobile and web app with visual aesthetics but easy to understands by users. His portfolio includes UI/UX design, web application, and mobile application. Additionally, he have hands-on experience with technologies like React JS, Next JS, JavaScript, TypeScript, and Flutter.',
+        ]}
+        title="about"
+        id={1}
+      />
     </div>
   );
 }
