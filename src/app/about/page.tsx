@@ -61,7 +61,7 @@ function AboutPage() {
             'Hamzah is a fullstack developer based in Indonesia. Driven by a spirit of curiosity, his interests encompass language, the arts, literature, visual design, digital media, and music. With a particular passion for coding and design,',
             ' Hamzah creates powerful both mobile and web app with visual aesthetics but easy to understands by users. His portfolio includes UI/UX design, web application, and mobile application. Additionally, he have hands-on experience with technologies like React JS, Next JS, JavaScript, TypeScript, and Flutter.',
           ]}
-          title="about"
+          title="skills"
           id={3}
           position="right"
           gap={true}
