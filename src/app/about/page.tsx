@@ -32,14 +32,38 @@ function AboutPage() {
         <AnimatedHeader firstString="BASED IN" secondString="INDONESIA" reverse={true} className="text-[32vh] font-bold inline-block whitespace-nowrap leading-[24vh]" />
       </div>
 
-      <IntroductionSection
-        texts={[
-          'Hamzah is a fullstack developer based in Indonesia. Driven by a spirit of curiosity, his interests encompass language, the arts, literature, visual design, digital media, and music. With a particular passion for coding and design,',
-          ' Hamzah creates powerful both mobile and web app with visual aesthetics but easy to understands by users. His portfolio includes UI/UX design, web application, and mobile application. Additionally, he have hands-on experience with technologies like React JS, Next JS, JavaScript, TypeScript, and Flutter.',
-        ]}
-        title="about"
-        id={1}
-      />
+      <div className="max-w-full mx-auto">
+        <IntroductionSection
+          texts={[
+            'Hamzah is a fullstack developer based in Indonesia. Driven by a spirit of curiosity, his interests encompass language, the arts, literature, visual design, digital media, and music. With a particular passion for coding and design,',
+            ' Hamzah creates powerful both mobile and web app with visual aesthetics but easy to understands by users. His portfolio includes UI/UX design, web application, and mobile application. Additionally, he have hands-on experience with technologies like React JS, Next JS, JavaScript, TypeScript, and Flutter.',
+          ]}
+          title="about"
+          id={1}
+          position="right"
+        />
+        <IntroductionSection
+          texts={['GET IN TOUCH', 'GITHUB', 'INSTAGRAM', 'LINKEDIN']}
+          links={[
+            { link: 'mailto:hamzahraihanif@gmail.com', title: 'hamzahraihanif@gmail.com' },
+            { link: 'https://www.github.com/hamzahraihan/', title: 'hamzahraihan' },
+            { link: 'https://www.instagram.com/hamzah_raihan/', title: '@hamzah_raihan' },
+            { link: 'https://www.linkedin.com/in/hamzah-raihan-ikhsanul-fikri-786b101a1/', title: 'HAMZAH RAIHAN' },
+          ]}
+          title="reach out"
+          id={2}
+          position="left"
+        />
+        <IntroductionSection
+          texts={[
+            'Hamzah is a fullstack developer based in Indonesia. Driven by a spirit of curiosity, his interests encompass language, the arts, literature, visual design, digital media, and music. With a particular passion for coding and design,',
+            ' Hamzah creates powerful both mobile and web app with visual aesthetics but easy to understands by users. His portfolio includes UI/UX design, web application, and mobile application. Additionally, he have hands-on experience with technologies like React JS, Next JS, JavaScript, TypeScript, and Flutter.',
+          ]}
+          title="about"
+          id={3}
+          position="right"
+        />
+      </div>
     </div>
   );
 }
