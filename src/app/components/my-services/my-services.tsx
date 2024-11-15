@@ -3,7 +3,7 @@ import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Accordion } from '@/components/ui/accordion';
 import AccordionList from './accordion-list';
-import { datas } from '@/datas';
+import { services } from '@/datas';
 import Link from 'next/link';
 
 function MyServicePage() {
@@ -61,7 +61,7 @@ function ServicesList() {
   return (
     <div className="max-w-full my-16">
       <Accordion type="single" collapsible className="w-full">
-        {datas.map((data) => (
+        {services.map((data) => (
           <AccordionList key={data.id} id={data.id} title={data.title} description={data.description} />
         ))}
       </Accordion>
