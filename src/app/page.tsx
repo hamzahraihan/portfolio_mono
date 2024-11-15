@@ -3,7 +3,6 @@ import { BigText } from './components/big-text';
 import { HeroPage } from './components/hero';
 import { AboutPage } from './components/about';
 import { OtherProjectCTA, MyServicePage } from './components/my-services';
-import { ContactSection } from './components/contact';
 
 export const metadata: Metadata = {
   title: 'Hamzah Raihan',
@@ -18,7 +17,6 @@ export default function Home() {
       <AboutPage />
       <MyServicePage />
       <OtherProjectCTA />
-      <ContactSection />
     </main>
   );
 }
