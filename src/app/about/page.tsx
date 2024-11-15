@@ -41,6 +41,7 @@ function AboutPage() {
           title="about"
           id={1}
           position="right"
+          gap={true}
         />
         <IntroductionSection
           texts={['GET IN TOUCH', 'GITHUB', 'INSTAGRAM', 'LINKEDIN']}
@@ -53,6 +54,7 @@ function AboutPage() {
           title="reach out"
           id={2}
           position="left"
+          gap={false}
         />
         <IntroductionSection
           texts={[
@@ -62,6 +64,7 @@ function AboutPage() {
           title="about"
           id={3}
           position="right"
+          gap={true}
         />
       </div>
     </div>
