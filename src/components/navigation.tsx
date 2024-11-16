@@ -62,9 +62,9 @@ function Navigation() {
           </Link>
         </div>
         <div className="after:duration-200 ease-out after:block after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-900 after:dark:bg-neutral-300 after:transition-transform after:hover:origin-bottom-left after:hover:scale-x-100">
-          <div className="flex h-full items-center">
-            <p>Archive</p>
-          </div>
+          <Link href="/archives" className="flex h-full items-center">
+            <p>Archives</p>
+          </Link>
         </div>
       </div>
     </motion.div>
