@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 function ProjectPage() {
   return (
     <div className="container mx-auto max-w-full my-20">
-      <div className="max-w-7xl mx-auto px-2">
+      <div className="max-w-5xl mx-auto px-2">
         <ProjectHeadSection />
       </div>
     </div>
