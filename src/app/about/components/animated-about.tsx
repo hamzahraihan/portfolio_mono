@@ -24,17 +24,15 @@ function IntroductionSection({ texts, title, id, position, links, gap, tech }: R
         <div className={`flex flex-col ${gap ? 'gap-2' : ''}`}>
           {texts?.map((text, i) => (
             <div key={i + 2} className="text-[2vh]">
-              <>
-                {text}{' '}
-                <span>
-                  <a href={links?.[i]?.link} target="_blank" rel="noreferrer noopener" className="text-neutral-700 dark:text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100 duration-100">
-                    {links?.[i]?.title}
-                  </a>
-                </span>
-              </>
+              {text}{' '}
+              <span>
+                <a href={links?.[i]?.link} target="_blank" rel="noreferrer noopener" className="text-neutral-700 dark:text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100 duration-100">
+                  {links?.[i]?.title}
+                </a>
+              </span>
             </div>
           ))}
-          <div className="grid grid-cols-3 leading-none">
+          <div className="grid grid-cols-4 leading-none">
             <div className="flex flex-col">
               {tech?.languages.map((lang, i) => (
                 <p key={i + 1}>{lang}</p>
