@@ -32,7 +32,7 @@ function IntroductionSection({ texts, title, id, position, links, gap, tech }: R
               </span>
             </div>
           ))}
-          <div className="grid grid-cols-4 leading-none">
+          <div className="grid grid-cols-4 leading-none text-[2vh]">
             <div className="flex flex-col">
               {tech?.languages.map((lang, i) => (
                 <p key={i + 1}>{lang}</p>
