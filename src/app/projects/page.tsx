@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import React from 'react';
+import ProjectHeadSection from './components/header';
 
 export const metadata: Metadata = {
   title: 'Projects - Hamzah Raihan',
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
 function ProjectPage() {
   return (
     <div className="container mx-auto max-w-4xl my-20">
+      <ProjectHeadSection />
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi enim magnam reprehenderit dolorem atque id totam tempore voluptas, commodi consequatur dolore harum quasi facere aliquid quas laboriosam vel maxime voluptatem nemo
       sequi doloremque quo? Veritatis molestias quaerat amet architecto odit, reiciendis delectus aperiam fugiat qui repellendus praesentium reprehenderit dignissimos dolorum vero soluta quisquam neque. Deleniti, cum? Illo alias recusandae
       quia asperiores omnis ducimus impedit illum sapiente autem ab inventore eaque dicta, odio earum repellat voluptatibus cumque! Architecto doloremque ipsam suscipit dicta. Necessitatibus eveniet labore ratione veritatis qui dolor neque
