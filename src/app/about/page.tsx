@@ -57,7 +57,7 @@ function AboutPage() {
           gap={false}
         />
         <IntroductionSection
-          tech={{ languages: ['javascript', 'typescript', 'dart'], frameworks: ['next js', 'express js', 'flutter'], tools: ['figma', 'vscode', 'firebase', 'git', 'github', 'postman'] }}
+          tech={{ languages: ['javascript', 'typescript', 'dart'], frameworks: ['next js', 'express js', 'flutter'], tools: ['figma', 'vscode', 'git', 'postman'], databases: ['firebase', 'supabase', 'mysql'] }}
           title="tech stack"
           id={3}
           position="right"
