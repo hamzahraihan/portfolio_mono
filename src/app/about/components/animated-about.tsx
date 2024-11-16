@@ -10,7 +10,7 @@ type SectionProps = {
   position: 'left' | 'right';
   links?: Array<{ title: string; link: string }>;
   gap: boolean;
-  tech?: { languages: string[]; frameworks: string[]; tools: string[] };
+  tech?: { languages: string[]; frameworks: string[]; tools: string[]; databases: string[] };
 };
 
 function IntroductionSection({ texts, title, id, position, links, gap, tech }: Readonly<SectionProps>) {
@@ -46,6 +46,11 @@ function IntroductionSection({ texts, title, id, position, links, gap, tech }: R
             <div className="flex flex-col">
               {tech?.tools.map((tool, i) => (
                 <p key={i + 1}>{tool}</p>
+              ))}
+            </div>
+            <div className="flex flex-col">
+              {tech?.databases.map((database, i) => (
+                <p key={i + 1}>{database}</p>
               ))}
             </div>
           </div>
