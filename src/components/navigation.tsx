@@ -42,7 +42,7 @@ function Navigation() {
   // };
 
   return (
-    <motion.div
+    <motion.nav
       className="p-4 min-w-full flex justify-between items-center border-b dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900 text-sm h-12 z-10"
       initial={{ position: 'fixed', y: 0 }}
       animate={!isPageTop && isNavbarVisible ? { y: -100 } : { y: 0 }}
@@ -67,7 +67,7 @@ function Navigation() {
           </Link>
         </div>
       </div>
-    </motion.div>
+    </motion.nav>
   );
 }
 
