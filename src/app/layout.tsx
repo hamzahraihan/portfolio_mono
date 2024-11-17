@@ -21,9 +21,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${questrial.className} antialiased transition-colors duration-300`}>
         <ThemeProvider attribute="class" defaultTheme="dark">
-          <nav>
-            <Navigation />
-          </nav>
+          <Navigation />
+
           <SmoothScroll>
             <LayoutTransition initial={{ opacity: 0, filter: 'blur(5px)' }} animate={{ opacity: 1, filter: 'none' }} exit={{ opacity: 0, filter: 'blur(5px)' }}>
               {children}
