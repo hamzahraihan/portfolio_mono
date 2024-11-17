@@ -27,12 +27,14 @@ function ProjectCard({ description, title, tech, image, serviceProvide, link, ap
       </div>
       <div className="border-t border-l border-neutral-500 pt-8 pl-8">
         <div className="grid grid-cols-3 gap-4">
-          <div>{title}</div>
-          <div className="mx-auto text-start text-sm w-60 text-neutral-500 hover:text-neutral-50 duration-150">
-            <p>{description}</p>
-            {tech.map((item) => (
-              <p key={item}>{item} </p>
-            ))}
+          <h1 className="text-2xl uppercase">{title}</h1>
+          <div className="flex flex-col gap-5 mx-auto text-start text-sm w-60 text-neutral-500 hover:text-neutral-800 dark:text-neutral-500 hover:dark:text-neutral-50 duration-150">
+            <h1>{description}</h1>
+            <div className="flex flex-wrap gap-1 leading-none dark:text-neutral-50 text-neutral-800">
+              {tech.map((item) => (
+                <p key={item}>{item} </p>
+              ))}
+            </div>
           </div>
           <div className="flex justify-end">{image ? <Image src={image} width={300} height={200} alt="project-image" /> : <div className="animate-pulse bg-gray-400 h-36 w-full" />}</div>
         </div>
