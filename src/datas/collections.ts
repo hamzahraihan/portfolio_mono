@@ -1,10 +1,10 @@
-export type DatasProps = {
+export type ServicesProps = {
   id: number;
   title: string;
   description: string[];
 };
 
-const services: DatasProps[] = [
+const services: ServicesProps[] = [
   {
     id: 1,
     title: 'Design',
