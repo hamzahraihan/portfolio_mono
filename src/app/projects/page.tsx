@@ -11,9 +11,12 @@ export const metadata: Metadata = {
 function ProjectPage() {
   return (
     <div className="container mx-auto max-w-full my-20">
-      <div className="max-w-5xl mx-auto px-2">
+      <div className="max-w-7xl mx-auto px-2">
         <ProjectHeadSection />
-        <ProjectCard />
+        <ProjectCard
+          title="Weather App"
+          description="Weather app is your go-to source for accurate and up-to-date weather information. With a sleek and intuitive interface, you can easily check the current conditions, hourly forecasts, and 7-day outlooks for your desired location."
+        />
       </div>
     </div>
   );
