@@ -30,6 +30,14 @@ function ProjectPage() {
             tech={['Javascript', 'React JS', 'MySQL', 'Express JS', 'Sequelize']}
             link="javascript:(0)"
           />
+          <ProjectCard
+            serviceProvide={['frontend developer', 'UI UX design']}
+            title="New York Times Clone"
+            application="web"
+            description="Experience the power of journalism with our New York Times clone. This web application replicates the iconic newspaper's digital experience, offering a curated selection of news articles, opinion pieces, and multimedia content."
+            tech={['Javascript', 'HTML', 'CSS']}
+            link="javascript:(0)"
+          />
         </div>
       </div>
     </div>
