@@ -13,10 +13,10 @@ type ProjectProps = {
 
 function ProjectCard({ description, title, tech, image, serviceProvide, link, application }: Readonly<ProjectProps>) {
   return (
-    <>
+    <div className="container">
       <div className="flex justify-between">
         <div className="flex gap-10">
-          <p className="text-sm text-neutral-400">{serviceProvide}</p>
+          <p className="text-sm text-neutral-400">{serviceProvide.join(' | ')}</p>
           <p className="text-sm">{application}</p>
         </div>
         {link && (
@@ -39,7 +39,7 @@ function ProjectCard({ description, title, tech, image, serviceProvide, link, ap
           <div className="flex justify-end">{image ? <Image src={image} width={300} height={200} alt="project-image" /> : <div className="animate-pulse bg-gray-400 h-36 w-full" />}</div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
