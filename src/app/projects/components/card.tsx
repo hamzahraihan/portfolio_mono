@@ -16,7 +16,7 @@ type ProjectProps = {
 
 function ProjectCard({ description, title, tech, image, roles, link, application }: Readonly<ProjectProps>) {
   return (
-    <motion.div className="h-64 w-auto overflow-hidden" initial={{ y: 200, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} transition={{ type: 'spring', damping: 20, stiffness: 80, duration: 1.2 }} viewport={{ once: true }}>
+    <motion.div className="h-72 w-auto overflow-hidden" initial={{ y: 200, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} transition={{ type: 'spring', damping: 20, stiffness: 80, duration: 1.2, delay: 0.5 }} viewport={{ once: true }}>
       <div className="flex justify-between">
         <div className="flex gap-10">
           <p className="text-sm text-neutral-400">{roles.join(' | ')}</p>
