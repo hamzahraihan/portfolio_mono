@@ -1,5 +1,8 @@
+'use client';
+
 import Image from 'next/image';
 import React from 'react';
+import { motion } from 'framer-motion';
 
 type ProjectProps = {
   description: string;
@@ -13,7 +16,7 @@ type ProjectProps = {
 
 function ProjectCard({ description, title, tech, image, serviceProvide, link, application }: Readonly<ProjectProps>) {
   return (
-    <div className="container">
+    <motion.div className="container" initial={{ y: 200, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} transition={{ type: 'spring', damping: 20, stiffness: 80, duration: 1.2 }} viewport={{ once: true }}>
       <div className="flex justify-between">
         <div className="flex gap-10">
           <p className="text-sm text-neutral-400">{serviceProvide.join(' | ')}</p>
@@ -39,7 +42,7 @@ function ProjectCard({ description, title, tech, image, serviceProvide, link, ap
           <div className="flex justify-end">{image ? <Image src={image} width={300} height={200} alt="project-image" /> : <div className="animate-pulse bg-gray-400 h-36 w-full" />}</div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
