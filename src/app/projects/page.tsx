@@ -11,24 +11,26 @@ export const metadata: Metadata = {
 function ProjectPage() {
   return (
     <div className="container mx-auto max-w-full my-20">
-      <div className="max-w-7xl mx-auto px-2">
+      <div className="gap-4 max-w-7xl mx-auto px-2">
         <ProjectHeadSection />
-        <ProjectCard
-          serviceProvide={['frontend developer']}
-          title="Weather App"
-          application="web"
-          description="Weather app is your go-to source for accurate and up-to-date weather information. With a sleek and intuitive interface, you can easily check the current conditions, hourly forecasts, and 7-day outlooks for your desired location."
-          tech={['Typescript', 'React JS', 'Geopify API', 'Open Mateo API', 'Open Weather API']}
-          link="javascript:(0)"
-        />
-        <ProjectCard
-          serviceProvide={['fullstack developer', 'UI UX design']}
-          title="Student Internship Platform"
-          application="web"
-          description=" platform is designed to bridge the gap between academia and industry, empowering students to achieve their career goals and helping employers find the perfect interns."
-          tech={['Javascript', 'React JS', 'MySQL', 'Express JS', 'Sequelize']}
-          link="javascript:(0)"
-        />
+        <div className="flex flex-col gap-10">
+          <ProjectCard
+            serviceProvide={['frontend developer']}
+            title="Weather App"
+            application="web"
+            description="Weather app is your go-to source for accurate and up-to-date weather information. With a sleek and intuitive interface, you can easily check the current conditions, hourly forecasts, and 7-day outlooks for your desired location."
+            tech={['Typescript', 'React JS', 'Geopify API', 'Open Mateo API', 'Open Weather API']}
+            link="javascript:(0)"
+          />
+          <ProjectCard
+            serviceProvide={['fullstack developer', 'UI UX design']}
+            title="Student Internship Platform"
+            application="web"
+            description="Internship platform is designed to bridge the gap between academia and industry, empowering students to achieve their career goals and helping employers find the perfect interns."
+            tech={['Javascript', 'React JS', 'MySQL', 'Express JS', 'Sequelize']}
+            link="javascript:(0)"
+          />
+        </div>
       </div>
     </div>
   );
