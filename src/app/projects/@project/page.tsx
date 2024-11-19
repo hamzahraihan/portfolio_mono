@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ProjectCard from '../components/card';
 import { getData } from '@/services/dataFetcher';
 
@@ -18,9 +18,11 @@ async function ProjectSection() {
   console.log('🚀 ~ ProjectSection ~ projects:', projects);
   return (
     <div className="flex flex-col gap-10 overflow-hidden">
-      {projects.map((project: ProjectProps) => (
-        <ProjectCard key={project.title} roles={project.roles} title={project.title} application={project.application} description={project.description} tech={project.tech} link={project.link} />
-      ))}
+      <Suspense fallback={<>loading...</>}>
+        {projects.map((project: ProjectProps) => (
+          <ProjectCard key={project.title} roles={project.roles} title={project.title} application={project.application} description={project.description} tech={project.tech} link={project.link} />
+        ))}
+      </Suspense>
     </div>
   );
 }
