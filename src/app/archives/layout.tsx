@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Metadata } from 'next';
+import HorizontalScroll from '@/components/horizontal-scroll';
 
 export const metadata: Metadata = {
   title: 'Archives - Hamzah Raihan',
@@ -8,13 +9,13 @@ export const metadata: Metadata = {
 
 type LayoutProps = {
   children: React.ReactNode;
-  certificate: React.ReactNode;
 };
 
 export default function Layout({ children }: Readonly<LayoutProps>) {
   return (
-    <div className="overscroll-none">
-      <div>{children}</div>
+    <div className="overscroll-none overflow-hidden ">
+      <h1 className="text-center text-neutral-400">( archives )</h1>
+      <HorizontalScroll>{children}</HorizontalScroll>
     </div>
   );
 }
