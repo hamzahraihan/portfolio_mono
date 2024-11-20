@@ -1,4 +1,4 @@
-import ProjectHeadSection from './components/header';
+import ProjectHeadSection from './_components/header';
 
 function ProjectPage() {
   return (
