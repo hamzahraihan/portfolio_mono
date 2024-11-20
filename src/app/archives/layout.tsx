@@ -13,7 +13,7 @@ type LayoutProps = {
 
 export default function Layout({ children }: Readonly<LayoutProps>) {
   return (
-    <div className="container mx-auto max-w-full my-20">
+    <div className="overscroll-none">
       <div>{children}</div>
     </div>
   );
