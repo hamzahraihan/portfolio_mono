@@ -3,14 +3,19 @@ import './globals.css';
 import { ThemeProvider } from '../components/theme-provider';
 import Navigation from '../components/navigation';
 import SmoothScroll from '@/components/smooth-scroll';
-import { LayoutTransition } from '@/components/layout-transition';
 import { ContactSection } from './components/contact';
+import { Metadata } from 'next';
 
 const questrial = Questrial({
   subsets: ['latin'],
   display: 'swap',
   weight: '400',
 });
+
+export const metadata: Metadata = {
+  title: 'Hamzah Raihan',
+  description: 'portfolio website',
+};
 
 export default function RootLayout({
   children,
@@ -24,12 +29,10 @@ export default function RootLayout({
           <Navigation />
 
           <SmoothScroll>
-            <LayoutTransition initial={{ opacity: 0, filter: 'blur(5px)' }} animate={{ opacity: 1, filter: 'none' }} exit={{ opacity: 0, filter: 'blur(5px)' }}>
-              {children}
-              <footer>
-                <ContactSection />
-              </footer>
-            </LayoutTransition>
+            {children}
+            <footer>
+              <ContactSection />
+            </footer>
           </SmoothScroll>
         </ThemeProvider>
       </body>
