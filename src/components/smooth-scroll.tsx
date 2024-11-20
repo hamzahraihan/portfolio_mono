@@ -4,7 +4,6 @@ import { useSpring, useTransform, useScroll, motion } from 'framer-motion';
 import ResizeObserver from 'resize-observer-polyfill';
 import { ReactNode, useCallback, useLayoutEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
-
 type PhysicsProp = {
   damping: number;
   mass: number;
@@ -37,16 +36,21 @@ const SmoothScroll = ({ children }: { children: ReactNode }) => {
   const spring = useSpring(transform, physics);
 
   const pathname = usePathname();
-  console.log('🚀 ~ SmoothScroll ~ pathname:', pathname);
 
-  return (
-    <>
-      <motion.div ref={scrollRef} style={{ y: spring }} className="fixed top-0 left-0 w-full overflow-hidden will-change-transform">
-        {children}
-      </motion.div>
-      {pathname !== '/archives' ? <div style={{ height: pageHeight }} /> : ''}
-    </>
-  );
+  if (pathname == '/archives') {
+    return children;
+  }
+
+  if (pathname !== '/archives') {
+    return (
+      <>
+        <motion.div ref={scrollRef} style={{ y: spring }} className="fixed top-0 left-0 w-full overflow-hidden will-change-transform">
+          {children}
+        </motion.div>
+        <div style={{ height: pageHeight }} />
+      </>
+    );
+  }
 };
 
 export default SmoothScroll;
