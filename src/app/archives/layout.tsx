@@ -11,11 +11,10 @@ type LayoutProps = {
   certificate: React.ReactNode;
 };
 
-export default function Layout({ children, certificate }: Readonly<LayoutProps>) {
+export default function Layout({ children }: Readonly<LayoutProps>) {
   return (
     <div className="container mx-auto max-w-full my-20">
       <div>{children}</div>
-      <div>{certificate}</div>
     </div>
   );
 }

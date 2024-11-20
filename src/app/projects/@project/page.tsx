@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import ProjectCard from '../components/card';
+import ProjectCard from '../_components/card';
 import { getData } from '@/services/dataFetcher';
 
 type ProjectProps = {
@@ -15,7 +15,7 @@ type ProjectProps = {
 async function ProjectSection() {
   const res = await getData('http://localhost:3000/api/projects');
   const projects = res.data;
-  console.log('🚀 ~ ProjectSection ~ projects:', projects);
+
   return (
     <div className="flex flex-col gap-10 overflow-hidden">
       <Suspense fallback={<>loading...</>}>
