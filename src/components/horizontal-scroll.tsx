@@ -9,6 +9,7 @@ function HorizontalScroll({ children }: Readonly<{ children: React.ReactNode }>)
   const ghostRef = useRef<HTMLDivElement>(null);
   const [scrollRange, setScrollRange] = useState(0);
   const [viewportWidth, setViewportWidth] = useState(0);
+  console.log('🚀 ~ HorizontalScroll ~ scrollRange:', scrollRange);
 
   useLayoutEffect(() => {
     if (scrollRef.current) {
@@ -38,7 +39,7 @@ function HorizontalScroll({ children }: Readonly<{ children: React.ReactNode }>)
 
   return (
     <>
-      <div className="fixed left-0 right-0 will-change-transform">
+      <div className="!fixed left-0 right-0 will-change-transform overflow-hidden">
         <motion.section ref={scrollRef} style={{ x: spring }} className="relative max-w-max flex items-center h-screen">
           {children}
         </motion.section>
