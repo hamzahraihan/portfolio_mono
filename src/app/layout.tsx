@@ -5,7 +5,6 @@ import Navigation from '../components/navigation';
 import SmoothScroll from '@/components/smooth-scroll';
 import { ContactSection } from './components/contact';
 import { Metadata } from 'next';
-import AnimatedLayout from '@/components/animated-presence';
 
 const questrial = Questrial({
   subsets: ['latin'],
@@ -29,12 +28,8 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="dark">
           <Navigation />
           <SmoothScroll>
-            <AnimatedLayout>
-              {children}
-              <footer>
-                <ContactSection />
-              </footer>
-            </AnimatedLayout>
+            {children}
+            <ContactSection />
           </SmoothScroll>
         </ThemeProvider>
       </body>
