@@ -14,6 +14,7 @@ const SmoothScroll = ({ children }: { children: ReactNode }) => {
   const scrollRef = useRef(null);
 
   const [pageHeight, setPageHeight] = useState(0);
+  const pathname = usePathname();
 
   const resizePageHeight = useCallback((entries: ResizeObserverEntry[]) => {
     for (const entry of entries) {
@@ -27,19 +28,13 @@ const SmoothScroll = ({ children }: { children: ReactNode }) => {
       resizeObserber.observe(scrollRef.current);
     }
     return () => resizeObserber.disconnect();
-  }, [scrollRef, resizePageHeight]);
+  }, [scrollRef, resizePageHeight, pathname]);
 
   const { scrollY } = useScroll();
 
   const transform = useTransform(scrollY, [0, pageHeight], [0, -pageHeight]);
   const physics: PhysicsProp = { damping: 15, mass: 0.1, stiffness: 100 };
   const spring = useSpring(transform, physics);
-
-  const pathname = usePathname();
-
-  if (pathname == '/archives') {
-    return children;
-  }
 
   if (pathname !== '/archives') {
     return (
@@ -50,6 +45,9 @@ const SmoothScroll = ({ children }: { children: ReactNode }) => {
         <div style={{ height: pageHeight }} />
       </>
     );
+  }
+  if (pathname == '/archives') {
+    return children;
   }
 };
 
