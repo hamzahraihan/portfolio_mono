@@ -5,6 +5,7 @@ import { Switch } from './ui/switch';
 import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 function Navigation() {
   const { theme, setTheme } = useTheme();
@@ -12,7 +13,11 @@ function Navigation() {
   const [isNavbarVisible, setIsNavbarVisible] = useState(false);
   const previousCurrentScrollPos = useRef(0);
 
+  const pathname = usePathname();
+
   useEffect(() => {
+    if (pathname == '/archives') return;
+
     const handleScroll = () => {
       const currentScrollPos = window.scrollY;
       setIsPageTop(currentScrollPos == 0);
@@ -26,7 +31,7 @@ function Navigation() {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [isNavbarVisible]);
+  }, [isNavbarVisible, pathname]);
 
   // const scrollToSection = (id: string) => {
   //   const element = document.getElementById(id);
