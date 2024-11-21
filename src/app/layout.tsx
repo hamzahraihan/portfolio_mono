@@ -27,7 +27,6 @@ export default function RootLayout({
       <body className={`${questrial.className} antialiased transition-colors duration-300`}>
         <ThemeProvider attribute="class" defaultTheme="dark">
           <Navigation />
-
           <SmoothScroll>
             {children}
             <footer>
