@@ -1,10 +1,13 @@
 'use client';
 
+import { usePathname } from 'next/navigation';
 import React, { useState } from 'react';
 
 function ContactSection() {
   const [isHovering, setIsHovering] = useState(false);
   const [isClick, setIsClick] = useState(false);
+
+  const pathname = usePathname();
 
   const handleClipboard = () => {
     navigator.clipboard.writeText('hamzahraihanif@gmail.com');
@@ -14,8 +17,10 @@ function ContactSection() {
     }, 2000);
   };
 
+  if (pathname == '/archives') return;
+
   return (
-    <div className="flex justify-between p-3 text-sm h-16">
+    <footer className="flex justify-between p-3 text-sm h-16">
       <div className="flex flex-col gap-1">
         <p>( socials )</p>
         <ul className="flex gap-2 ">
@@ -59,7 +64,7 @@ function ContactSection() {
       <div className="flex items-end gap-1">
         <p>hamzahraihan</p>
       </div>
-    </div>
+    </footer>
   );
 }
 
