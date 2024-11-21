@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import HorizontalScroll from '@/components/horizontal-scroll';
+import AnimatedLayout from '@/components/animated-presence';
 
 export const metadata: Metadata = {
   title: 'Archives - Hamzah Raihan',
@@ -13,9 +14,11 @@ type LayoutProps = {
 
 export default function Layout({ children }: Readonly<LayoutProps>) {
   return (
-    <div className="overscroll-none overflow-hidden ">
-      <h1 className="text-center text-neutral-400">( archives )</h1>
-      <HorizontalScroll>{children}</HorizontalScroll>
-    </div>
+    <AnimatedLayout>
+      <div className="overscroll-none overflow-hidden">
+        <h1 className="text-center text-neutral-400">( archives )</h1>
+        <HorizontalScroll>{children}</HorizontalScroll>
+      </div>
+    </AnimatedLayout>
   );
 }
