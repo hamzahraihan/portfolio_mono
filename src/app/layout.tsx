@@ -25,6 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${questrial.className} antialiased transition-colors duration-300`}>
+        <div id="noise-bg"></div>
         <ThemeProvider attribute="class" defaultTheme="dark">
           <Navigation />
           <SmoothScroll>
