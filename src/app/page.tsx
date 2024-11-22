@@ -1,9 +1,9 @@
 'use client';
 
-import { BigText } from './components/big-text';
-import { HeroPage } from './components/hero';
-import { AboutPage } from './components/about';
-import { OtherProjectCTA, MyServicePage } from './components/my-services';
+import { BigText } from './_components/big-text';
+import { HeroPage } from './_components/hero';
+import { AboutPage } from './_components/about';
+import { OtherProjectCTA, MyServicePage } from './_components/my-services';
 import AnimatedLayout from '@/components/animated-presence';
 
 export default function Home() {
