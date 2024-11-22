@@ -34,7 +34,7 @@ function AboutPage() {
           <AnimatedHeader firstString="BASED IN" secondString="INDONESIA" reverse={true} className="text-[32vh] font-bold inline-block whitespace-nowrap leading-[24vh]" />
         </div>
 
-        <div className="max-w-full mx-auto">
+        <div className="max-w-6xl mx-auto">
           <IntroductionSection
             texts={[
               'Hamzah is a fullstack developer based in Indonesia. Driven by a spirit of curiosity, his interests encompass language, the arts, literature, visual design, digital media, and music. With a particular passion for coding and design,',
