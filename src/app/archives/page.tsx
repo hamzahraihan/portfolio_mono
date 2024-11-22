@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import CertificateSection from './_components/certificate';
+import OtherSection from './_components/other';
 import AnimatedLayout from '@/components/animated-presence';
 import EducationSection from './_components/education';
 
@@ -13,10 +13,10 @@ function ArchivePage() {
           <EducationSection />
         </div>
         <div className="h-screen w-screen">
-          <CertificateSection />
+          <OtherSection />
         </div>
         <div className="h-screen w-screen">
-          <CertificateSection />
+          <OtherSection />
         </div>
       </div>
     </AnimatedLayout>
