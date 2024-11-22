@@ -24,7 +24,7 @@ function EducationSection() {
               title="Skilvul"
               date="Aug 2023 - Dec 2023"
               position="Fullstack Developer"
-              location="South Jakarta, West Java, ID"
+              location="Remote, ID"
               description="Led a team of 3 members in developing a full stack application and managed to get our project into the top 8 best project out of 40 teams or 121 participants."
               row="row-start-2"
               span="row-span-2"
