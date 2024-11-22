@@ -3,7 +3,7 @@ import './globals.css';
 import { ThemeProvider } from '../components/theme-provider';
 import Navigation from '../components/navigation';
 import SmoothScroll from '@/components/smooth-scroll';
-import { ContactSection } from './components/contact';
+import { ContactSection } from './_components/contact';
 import { Metadata } from 'next';
 
 const questrial = Questrial({
