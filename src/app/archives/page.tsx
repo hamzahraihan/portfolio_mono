@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import OtherSection from './_components/other';
+import NoteworthySection from './_components/noteworthy-project';
 import AnimatedLayout from '@/components/animated-presence';
 import EducationSection from './_components/education';
 
@@ -13,7 +13,7 @@ function ArchivePage() {
           <EducationSection />
         </div>
         <div className="h-screen w-screen">
-          <OtherSection />
+          <NoteworthySection />
         </div>
       </div>
     </AnimatedLayout>
