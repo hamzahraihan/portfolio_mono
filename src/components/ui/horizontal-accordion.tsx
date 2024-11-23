@@ -60,7 +60,11 @@ function HorizontalAccordion() {
               className={`absolute inset-0 flex items-center transition-opacity duration-300
           ${activeTab === index ? 'opacity-0' : 'opacity-100'}`}
             >
-              <h3 className="text-white font-semibold transform -rotate-90 whitespace-nowrap">{item.title}</h3>
+              <div className='text-white font-semibold transform -rotate-90 whitespace-nowrap"'>
+                <h3>{item.title}</h3>
+
+                <h4>2023 / 2024</h4>
+              </div>
             </div>
           </div>
         </button>
