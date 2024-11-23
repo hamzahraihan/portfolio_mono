@@ -15,9 +15,6 @@ function ArchivePage() {
         <div className="h-screen w-screen">
           <OtherSection />
         </div>
-        <div className="h-screen w-screen">
-          <OtherSection />
-        </div>
       </div>
     </AnimatedLayout>
   );
