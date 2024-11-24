@@ -29,7 +29,7 @@ const items = [
     description: 'Dramatic coastal cliffs with crashing waves and ocean views.',
   },
   {
-    title: 'Coastal Cliffs',
+    title: 'Coastal Cliffs Coastal Cliffs',
 
     description: 'Dramatic coastal cliffs with crashing waves and ocean views.',
   },
@@ -38,23 +38,27 @@ const items = [
 function HorizontalAccordion() {
   const [activeTab, setActiveTab] = useState(0);
   return (
-    <div className="flex w-full h-[60vh] gap-2">
+    <div className="flex w-[80vw] h-[60vh] gap-2">
       {items.map((item, index) => (
         <button
           type="button"
           key={index + 1}
-          className={`border-l relative overflow-hidden transition-all duration-500 ease-in-out
+          className={`border-r relative overflow-hidden transition-all duration-500 ease-in-out
         ${activeTab === index ? 'flex-grow' : 'flex-grow-0 hover:flex-grow-[0.1]'}
-        ${activeTab === index ? 'w-96' : 'w-12'}`}
+        ${activeTab === index ? 'w-96' : 'w-[5vw]'}`}
           onClick={() => setActiveTab(index)}
         >
           <div className="flex h-full bg-transparent">
-            <div className="flex flex-col justify-between w-12 transition-opacity duration-300">
-              <h3 className="font-semibold transform -rotate-90 text-xs">{item.title}</h3>
-              <h4 className="transform -rotate-90 text-xs">2023 / 2024</h4>
+            <div className="flex flex-col justify-between w-[5vw] h-full transition-opacity duration-300">
+              <div className="transform -rotate-90 translate-y-7 whitespace-nowrap">
+                <h3 className="text-white text-lg" style={{ direction: 'rtl' }}>
+                  {item.title}
+                </h3>
+              </div>
+              <h4 className="transform -translate-y-7 -rotate-90 text-xs whitespace-nowrap">2023 / 2024</h4>
             </div>
             <div
-              className={`h-full flex flex-col justify-between p-4 text-white transition-opacity duration-300
+              className={`h-full w-full flex flex-col justify-between text-white transition-opacity duration-300
           ${activeTab === index ? 'opacity-100' : 'opacity-0'}`}
             >
               <h3 className="text-xl font-semibold">{item.title}</h3>
