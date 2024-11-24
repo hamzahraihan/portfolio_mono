@@ -1,7 +1,7 @@
 import { Questrial } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '../components/theme-provider';
-import Navigation from '../components/navigation';
+import Navigation from '../components/ui/navigation';
 import SmoothScroll from '@/components/smooth-scroll';
 import { ContactSection } from './_components/contact';
 import { Metadata } from 'next';
