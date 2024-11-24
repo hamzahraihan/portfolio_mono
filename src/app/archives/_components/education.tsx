@@ -3,7 +3,7 @@ import ArchiveCard from './ui/card';
 
 function EducationSection() {
   return (
-    <div className="h-full w-full p-10">
+    <div className="h-screen w-screen p-10">
       <div className="grid grid-cols-3 h-full gap-2">
         <div className="flex mt-auto h-full w-full dark:bg-neutral-50 bg-neutral-900">
           <h1 className="text-[14vh] text-neutral-50 dark:text-neutral-800 p-3">Journey</h1>
