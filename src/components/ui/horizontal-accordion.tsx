@@ -51,7 +51,7 @@ function HorizontalAccordion() {
           <div className="flex h-full bg-transparent">
             <div className="flex flex-col justify-between w-[5vw] h-full transition-opacity duration-300">
               <div className="transform -rotate-90 translate-y-7 whitespace-nowrap">
-                <h3 className="text-white text-lg" style={{ direction: 'rtl' }}>
+                <h3 className="text-white text-[3vh]" style={{ direction: 'rtl' }}>
                   {item.title}
                 </h3>
               </div>
