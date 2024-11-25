@@ -3,14 +3,14 @@
 import React from 'react';
 import NoteworthySection from './_components/noteworthy-project';
 import AnimatedLayout from '@/components/animated-presence';
-import EducationSection from './_components/education';
+import JourneySection from './_components/journey';
 
 function ArchivePage() {
   return (
     <AnimatedLayout>
       <div className="relative flex">
         <div className="h-screen w-screen">
-          <EducationSection />
+          <JourneySection />
         </div>
         <div className="h-screen w-screen">
           <NoteworthySection />
