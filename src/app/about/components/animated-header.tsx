@@ -29,7 +29,7 @@ const AnimatedHeader = ({ firstString, secondString, reverse, className }: { fir
 
     const yArray = useTransform(scrollYProgress, [reverseIndex * 0.02, (reverseIndex + 1) * 0.05], [0, 210], { clamp: true });
 
-    const physics = { damping: 15, mass: 0.1, stiffness: 200 };
+    const physics = { damping: 15, mass: 0.1, stiffness: 55 };
     const springArray = useSpring(yArray, physics);
     return { opacityArray, springArray };
   };
