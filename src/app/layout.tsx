@@ -1,5 +1,5 @@
 import { Questrial } from 'next/font/google';
-import './globals.css';
+import '@/app/ui/globals.css';
 import { ThemeProvider } from '../components/theme-provider';
 import Navigation from '../components/ui/navigation';
 import SmoothScroll from '@/components/smooth-scroll';
