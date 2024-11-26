@@ -8,14 +8,28 @@ function HorizontalScroll({ children }: Readonly<{ children: React.ReactNode }>)
   const scrollRef = useRef<HTMLDivElement>(null);
   const ghostRef = useRef<HTMLDivElement>(null);
   const [scrollRange, setScrollRange] = useState(0);
-  const [viewportWidth, setViewportWidth] = useState(0);
+
   console.log('🚀 ~ HorizontalScroll ~ scrollRange:', scrollRange);
+  const [viewportWidth, setViewportWidth] = useState(0);
 
   useLayoutEffect(() => {
-    if (scrollRef.current) {
-      setScrollRange(scrollRef.current.scrollWidth);
-    }
-  }, [scrollRef]);
+    const handleResize = () => {
+      if (scrollRef.current) {
+        setScrollRange(scrollRef.current.scrollWidth);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // useLayoutEffect(() => {
+  //   if (scrollRef.current) {
+  //     setScrollRange(scrollRef.current.scrollWidth);
+  //   }
+  // }, [scrollRef, scrollRange]);
 
   const onResize = useCallback((entries: ResizeObserverEntry[]) => {
     for (const entry of entries) {
