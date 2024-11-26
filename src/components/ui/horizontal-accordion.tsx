@@ -51,14 +51,14 @@ function HorizontalAccordion() {
           <div className="flex h-full bg-transparent">
             <div className="flex flex-col justify-between w-[5vw] h-full transition-opacity duration-300">
               <div className="transform -rotate-90 translate-y-7 whitespace-nowrap">
-                <h3 className="text-white text-[3vh]" style={{ direction: 'rtl' }}>
+                <h3 className="text-[3vh]" style={{ direction: 'rtl' }}>
                   {item.title}
                 </h3>
               </div>
               <h4 className="transform -translate-y-7 -rotate-90 text-xs whitespace-nowrap">2023 / 2024</h4>
             </div>
             <div
-              className={`h-full w-full flex flex-col justify-between text-white transition-opacity duration-300
+              className={`h-full w-full flex flex-col justify-between transition-opacity duration-300
           ${activeTab === index ? 'opacity-100' : 'opacity-0'}`}
             >
               <h3 className="text-xl font-semibold">{item.title}</h3>
