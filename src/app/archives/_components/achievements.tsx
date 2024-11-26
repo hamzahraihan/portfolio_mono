@@ -1,6 +1,11 @@
+import EmblaCarousel from '@/components/ui/embla-carousel';
 import React from 'react';
+import { EmblaOptionsType } from 'embla-carousel';
 
 function AchievementSection() {
+  const OPTIONS: EmblaOptionsType = {};
+  const SLIDE_COUNT = 5;
+  const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
   return (
     <div className="h-full w-full py-10 px-2">
       <div className="grid grid-cols-6 grid-rows-3 h-full w-full">
@@ -17,17 +22,10 @@ function AchievementSection() {
         <div>lorem</div>
         <div>lorem</div>
         <div>lorem</div>
-        <div>lorem</div>
-        <div>lorem</div>
-        <div>lorem</div>
-        <div>lorem</div>
-        <div>lorem</div>
-        <div>lorem</div>
-        <div>lorem</div>
-        <div>lorem</div>
-        <p className="pb-2 flex items-center gap-1">
-          Continuous learning and improvement are the keys to success <span className="w-5 h-0.5 rounded-lg bg-white"></span>
-        </p>
+        <div className="col-span-3">lorem</div>
+        <div className="col-span-3 row-span-3">
+          <EmblaCarousel slides={SLIDES} options={OPTIONS} />
+        </div>
       </div>
     </div>
   );
