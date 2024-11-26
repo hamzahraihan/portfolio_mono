@@ -8,7 +8,7 @@ function AchievementSection() {
   const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
   return (
     <div className="h-full w-full py-10 px-2">
-      <div className="grid grid-cols-6 grid-rows-3 h-full w-full">
+      <div className="grid grid-cols-6 grid-rows-3 gap-2 h-full w-full">
         <div className="col-span-3 row-end-4">
           <div className="flex flex-col leading-none justify-center">
             <h1 className="font-bold text-[12vh]">Certification</h1>
@@ -16,9 +16,9 @@ function AchievementSection() {
             <h1 className="font-bold text-[12vh]">& Achievements</h1>
           </div>
         </div>
-        <div>Front-end Development</div>
-        <div>Back-end Development</div>
-        <div>Best Project</div>
+        <div className="dark:bg-neutral-50 bg-neutral-900 dark:text-neutral-800 text-neutral-50 rounded-xl p-2">Front-end Development</div>
+        <div className="dark:bg-neutral-50 bg-neutral-900 dark:text-neutral-800 text-neutral-50 rounded-xl p-2">Back-end Development</div>
+        <div className="dark:bg-neutral-50 bg-neutral-900 dark:text-neutral-800 text-neutral-50 rounded-xl p-2">Best Project</div>
         <div>lorem</div>
         <div>lorem</div>
         <div>lorem</div>
