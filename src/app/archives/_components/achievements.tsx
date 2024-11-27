@@ -1,11 +1,8 @@
-import EmblaCarousel from '@/components/ui/embla-carousel';
 import React from 'react';
-import { EmblaOptionsType } from 'embla-carousel';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import { Dialog, DialogContent, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 
 function AchievementSection() {
-  const OPTIONS: EmblaOptionsType = {};
-  const SLIDE_COUNT = 5;
-  const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
   return (
     <div className="h-full w-full py-10 px-2">
       <div className="grid grid-cols-6 grid-rows-3 gap-2 h-full w-full">
@@ -17,15 +14,38 @@ function AchievementSection() {
           </div>
         </div>
         <div className="dark:bg-neutral-50 bg-neutral-900 dark:text-neutral-800 text-neutral-50 rounded-xl p-2">Front-end Development</div>
+        <div className="">lorem</div>
+        <div className="">lorem</div>
         <div className="dark:bg-neutral-50 bg-neutral-900 dark:text-neutral-800 text-neutral-50 rounded-xl p-2">Back-end Development</div>
-        <div className="dark:bg-neutral-50 bg-neutral-900 dark:text-neutral-800 text-neutral-50 rounded-xl p-2">Best Project</div>
-        <div>lorem</div>
-        <div>lorem</div>
-        <div>lorem</div>
-        <div className="col-span-3">lorem</div>
-        <div className="col-span-3 row-span-3">
-          <EmblaCarousel slides={SLIDES} options={OPTIONS} />
-        </div>
+
+        <Dialog>
+          <DialogTrigger className="dark:bg-neutral-50 bg-neutral-900 dark:text-neutral-800 text-neutral-50 rounded-xl p-2" asChild>
+            <button>Best Project</button>
+          </DialogTrigger>
+
+          <DialogTitle hidden></DialogTitle>
+          <DialogContent className="flex justify-center border-none max-w-4xl !bg-transparent">
+            <Carousel className="w-full max-w-xs">
+              <CarouselContent>
+                {Array.from({ length: 5 }).map((_, index) => (
+                  <CarouselItem key={index + 1}>
+                    <div className="p-1">
+                      <div className="border">
+                        <div className="flex aspect-square items-center justify-center p-6">
+                          <span className="text-4xl font-semibold">{index + 1}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious />
+              <CarouselNext />
+            </Carousel>
+          </DialogContent>
+        </Dialog>
+
+        <div className=" "></div>
       </div>
     </div>
   );
