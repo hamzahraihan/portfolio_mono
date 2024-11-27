@@ -6,25 +6,35 @@ function AchievementSection() {
   return (
     <div className="h-full w-full py-10 px-2">
       <div className="grid grid-cols-6 grid-rows-3 gap-2 h-full w-full">
-        <div className="col-span-3 row-end-4">
+        <div className="text-xl text-neutral-500">Continuous</div>
+        <div className="text-xl text-neutral-500">learning and</div>
+        <div className="text-xl text-neutral-500">improvement</div>
+        <div className="text-xl text-neutral-500">are the </div>
+        <div className="text-xl text-neutral-500">keys</div>
+        <div className="text-xl text-neutral-500">to success</div>
+
+        <div className="col-span-3 row-end-4 mt-auto">
           <div className="flex flex-col leading-none justify-center">
             <h1 className="font-bold text-[12vh]">Certification</h1>
-            <p className="text-neutral-500 text-[2vh] pb-2 flex items-center gap-1">Continuous learning and improvement are the keys to success</p>
             <h1 className="font-bold text-[12vh]">& Achievements</h1>
           </div>
         </div>
-        <div className="dark:bg-neutral-50 bg-neutral-900 dark:text-neutral-800 text-neutral-50 rounded-xl p-2">Front-end Development</div>
-        <div className="">lorem</div>
-        <div className="">lorem</div>
-        <div className="dark:bg-neutral-50 bg-neutral-900 dark:text-neutral-800 text-neutral-50 rounded-xl p-2">Back-end Development</div>
+
+        <div className="row-end-4 col-end-7 col-span-2">
+          <div className="flex justify-evenly items-end w-full h-full">
+            <div className="h-20 w-20 bg-neutral-300 animate-pulse"></div>
+            <div className="h-20 w-20 bg-neutral-300 animate-pulse"></div>
+            <div className="h-20 w-20 bg-neutral-300 animate-pulse"></div>
+          </div>
+        </div>
 
         <Dialog>
-          <DialogTrigger className="dark:bg-neutral-50 bg-neutral-900 dark:text-neutral-800 text-neutral-50 rounded-xl p-2" asChild>
+          <DialogTrigger className="dark:bg-neutral-50 bg-neutral-900 dark:text-neutral-800 text-neutral-50 rounded-xl p-2 col-end-3" asChild>
             <button>Best Project</button>
           </DialogTrigger>
 
           <DialogTitle hidden></DialogTitle>
-          <DialogContent className="flex justify-center border-none max-w-4xl !bg-transparent">
+          <DialogContent className="flex justify-center border-none !bg-transparent">
             <Carousel className="w-full max-w-xs">
               <CarouselContent>
                 {Array.from({ length: 5 }).map((_, index) => (
@@ -44,8 +54,58 @@ function AchievementSection() {
             </Carousel>
           </DialogContent>
         </Dialog>
+        <Dialog>
+          <DialogTrigger className="dark:bg-neutral-50 bg-neutral-900 dark:text-neutral-800 text-neutral-50 rounded-xl p-2" asChild>
+            <button>Best Project</button>
+          </DialogTrigger>
 
-        <div className=" "></div>
+          <DialogTitle hidden></DialogTitle>
+          <DialogContent className="flex justify-center border-none !bg-transparent">
+            <Carousel className="w-full max-w-xs">
+              <CarouselContent>
+                {Array.from({ length: 5 }).map((_, index) => (
+                  <CarouselItem key={index + 1}>
+                    <div className="p-1">
+                      <div className="border">
+                        <div className="flex aspect-square items-center justify-center p-6">
+                          <span className="text-4xl font-semibold">{index + 1}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious />
+              <CarouselNext />
+            </Carousel>
+          </DialogContent>
+        </Dialog>
+        <Dialog>
+          <DialogTrigger className="dark:bg-neutral-50 bg-neutral-900 dark:text-neutral-800 text-neutral-50 rounded-xl p-2" asChild>
+            <button>Best Project</button>
+          </DialogTrigger>
+
+          <DialogTitle hidden></DialogTitle>
+          <DialogContent className="flex justify-center border-none !bg-transparent">
+            <Carousel className="w-full max-w-xs">
+              <CarouselContent>
+                {Array.from({ length: 5 }).map((_, index) => (
+                  <CarouselItem key={index + 1}>
+                    <div className="p-1">
+                      <div className="border">
+                        <div className="flex aspect-square items-center justify-center p-6">
+                          <span className="text-4xl font-semibold">{index + 1}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious />
+              <CarouselNext />
+            </Carousel>
+          </DialogContent>
+        </Dialog>
       </div>
     </div>
   );
