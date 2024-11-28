@@ -13,7 +13,7 @@ type CardProps = {
 
 function ArchiveCard({ row, span, col, title, date, position, location, description }: Readonly<CardProps>) {
   return (
-    <div className={`flex flex-col text-[2vh] ${row} ${span} ${col}`}>
+    <div className={`flex flex-col text-[1.2vh] md:text-[1.6vh] lg:text-[1.8vh] xl:text-[2vh] ${row} ${span} ${col}`}>
       <div className="flex justify-between">
         <p>{title}</p>
         <p className="text-neutral-400">{date}</p>
