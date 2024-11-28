@@ -4,12 +4,11 @@ import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 import React, { useCallback, useLayoutEffect, useRef, useState } from 'react';
 import ResizeObserver from 'resize-observer-polyfill';
 
-function HorizontalScroll({ className, children }: Readonly<{ className: string; children: React.ReactNode }>) {
+function HorizontalScroll({ children }: Readonly<{ children: React.ReactNode }>) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const ghostRef = useRef<HTMLDivElement>(null);
   const [scrollRange, setScrollRange] = useState(0);
 
-  console.log('🚀 ~ HorizontalScroll ~ scrollRange:', scrollRange);
   const [viewportWidth, setViewportWidth] = useState(0);
 
   useLayoutEffect(() => {
@@ -53,7 +52,7 @@ function HorizontalScroll({ className, children }: Readonly<{ className: string;
 
   return (
     <>
-      <div className={`!fixed left-0 right-0 will-change-transform overflow-hidden ${className}`}>
+      <div className="!fixed left-0 right-0 will-change-transform overflow-hidden">
         <motion.section ref={scrollRef} style={{ x: spring }} className="relative max-w-max flex items-center h-screen">
           {children}
         </motion.section>
