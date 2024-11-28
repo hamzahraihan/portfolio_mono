@@ -15,8 +15,8 @@ function AchievementSection() {
 
         <div className="col-span-3 row-end-4 mt-auto">
           <div className="flex flex-col leading-none justify-center">
-            <h1 className="uppercase font-semibold text-[10vh]">Certification</h1>
-            <h1 className="uppercase font-semibold text-[10vh]">& Achievements</h1>
+            <h1 className="uppercase font-semibold text-[6vh] md:text-[7vh] lg:text-[8vh]">Certification</h1>
+            <h1 className="uppercase font-semibold text-[6vh] md:text-[7vh] lg:text-[8vh]">& Achievements</h1>
           </div>
         </div>
 
