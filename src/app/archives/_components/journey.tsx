@@ -50,8 +50,10 @@ function JourneySection({ view }: Readonly<{ view: 'web' | 'mobile' }>) {
   if (view === 'mobile') {
     return (
       <div>
-        <div className="text-6xl mb-10">Journey</div>
-        <div className="flex flex-col gap-10">
+        <div className="h-full dark:bg-neutral-50 bg-neutral-900 mb-4">
+          <h1 className="text-[9vh] lg:text-[11vh] xl:text-[13vh] text-neutral-50 dark:text-neutral-800 p-2">Journey</h1>
+        </div>
+        <div className="flex flex-col gap-5">
           <ArchiveCard
             title="University of Singaperbangsa Karawang"
             date="Sep 2020 - Jul 2024"
