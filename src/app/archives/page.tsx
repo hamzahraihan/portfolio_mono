@@ -31,9 +31,11 @@ function ArchivePage() {
 
       {/* mobile view */}
       <div className="block lg:hidden max-w-3xl mx-auto mt-10 px-4">
-        <div className="w-full">
-          <JourneySection view="mobile" />
-        </div>
+        <AnimatedLayout>
+          <div className="w-full">
+            <JourneySection view="mobile" />
+          </div>
+        </AnimatedLayout>
       </div>
     </>
   );
