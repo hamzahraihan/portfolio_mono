@@ -1,4 +1,5 @@
 'use client';
+// TODO MOBILE VIEW
 
 import NoteworthySection from './_components/noteworthy-project';
 import AnimatedLayout from '@/components/animated-presence';
@@ -15,7 +16,7 @@ function ArchivePage() {
           <AnimatedLayout>
             <div className="relative flex">
               <div className="h-screen w-screen">
-                <JourneySection />
+                <JourneySection view="web" />
               </div>
               <div className="h-screen w-screen">
                 <NoteworthySection />
@@ -29,7 +30,11 @@ function ArchivePage() {
       </div>
 
       {/* mobile view */}
-      <div className="block lg:hidden">mobile</div>
+      <div className="block lg:hidden max-w-3xl mx-auto mt-10 px-4">
+        <div className="w-full">
+          <JourneySection view="mobile" />
+        </div>
+      </div>
     </>
   );
 }
