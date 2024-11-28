@@ -15,7 +15,7 @@ export default function Layout({ children }: Readonly<LayoutProps>) {
   return (
     <div className="overscroll-none overflow-hidden">
       <h1 className="text-center text-neutral-400">( archives )</h1>
-      <HorizontalScroll>{children}</HorizontalScroll>
+      <HorizontalScroll className="hidden xl:block">{children}</HorizontalScroll>
     </div>
   );
 }
