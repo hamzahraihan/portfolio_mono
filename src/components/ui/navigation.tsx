@@ -6,6 +6,8 @@ import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { HamburgerMenuIcon } from '@radix-ui/react-icons';
+import { Drawer, DrawerContent, DrawerDescription, DrawerHeader, DrawerTitle, DrawerTrigger } from '@/components/ui/drawer';
 
 function Navigation() {
   const { theme, setTheme } = useTheme();
@@ -53,24 +55,65 @@ function Navigation() {
       animate={!isPageTop && isNavbarVisible ? { y: -100 } : { y: 0 }}
       transition={{ duration: 0.5, type: 'spring', damping: 20, stiffness: 100, restDelta: 0.001 }}
     >
-      <Link href="/">hamzahraihan</Link>
-      <Switch onClick={() => setTheme(theme == 'dark' ? 'light' : 'dark')} checked={theme != 'light'} />
-      <div className="flex gap-20 h-12">
-        <div className="after:duration-200 ease-out after:block after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-900 after:dark:bg-neutral-300 after:transition-transform after:hover:origin-bottom-left after:hover:scale-x-100 h-full">
-          <Link href="/about" className="flex h-full items-center">
-            <p>About</p>
-          </Link>
+      <Link href="/" className="block lg:hidden">
+        hamzah<span className="dark:bg-neutral-50 dark:text-neutral-800 bg-neutral-800 text-neutral-50">raihan</span>
+      </Link>
+      <div className="hidden lg:flex w-full justify-between items-center">
+        <Link href="/">
+          hamzah<span className="dark:bg-neutral-50 dark:text-neutral-800 bg-neutral-800 text-neutral-50">raihan</span>
+        </Link>
+        <Switch onClick={() => setTheme(theme == 'dark' ? 'light' : 'dark')} checked={theme != 'light'} />
+        <div className="flex gap-20 h-12">
+          <div className="after:duration-200 ease-out after:block after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-900 after:dark:bg-neutral-300 after:transition-transform after:hover:origin-bottom-left after:hover:scale-x-100 h-full">
+            <Link href="/about" className="flex h-full items-center">
+              <p>About</p>
+            </Link>
+          </div>
+          <div className="after:duration-200 ease-out after:block after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-900 after:dark:bg-neutral-300 after:transition-transform after:hover:origin-bottom-left after:hover:scale-x-100">
+            <Link href="/projects" className="flex h-full items-center">
+              <p>Work</p>
+            </Link>
+          </div>
+          <div className="after:duration-200 ease-out after:block after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-900 after:dark:bg-neutral-300 after:transition-transform after:hover:origin-bottom-left after:hover:scale-x-100">
+            <Link href="/archives" className="flex h-full items-center">
+              <p>Archives</p>
+            </Link>
+          </div>
         </div>
-        <div className="after:duration-200 ease-out after:block after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-900 after:dark:bg-neutral-300 after:transition-transform after:hover:origin-bottom-left after:hover:scale-x-100">
-          <Link href="/projects" className="flex h-full items-center">
-            <p>Work</p>
-          </Link>
-        </div>
-        <div className="after:duration-200 ease-out after:block after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-900 after:dark:bg-neutral-300 after:transition-transform after:hover:origin-bottom-left after:hover:scale-x-100">
-          <Link href="/archives" className="flex h-full items-center">
-            <p>Archives</p>
-          </Link>
-        </div>
+      </div>
+
+      <div className="block lg:hidden">
+        <Drawer>
+          <DrawerTrigger asChild>
+            <HamburgerMenuIcon />
+          </DrawerTrigger>
+          <DrawerContent>
+            <div className="mx-auto w-full max-w-sm h-[50vh]">
+              <DrawerHeader>
+                <DrawerTitle></DrawerTitle>
+                <DrawerDescription></DrawerDescription>
+              </DrawerHeader>
+              <div className="flex flex-col gap-4 p-4">
+                <Switch onClick={() => setTheme(theme == 'dark' ? 'light' : 'dark')} checked={theme != 'light'} />
+                <div className="after:duration-200 ease-out after:block after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-900 after:dark:bg-neutral-300 after:transition-transform after:hover:origin-bottom-left after:hover:scale-x-100 h-full">
+                  <Link href="/about" className="flex h-full items-center">
+                    <p>About</p>
+                  </Link>
+                </div>
+                <div className="after:duration-200 ease-out after:block after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-900 after:dark:bg-neutral-300 after:transition-transform after:hover:origin-bottom-left after:hover:scale-x-100">
+                  <Link href="/projects" className="flex h-full items-center">
+                    <p>Work</p>
+                  </Link>
+                </div>
+                <div className="after:duration-200 ease-out after:block after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-900 after:dark:bg-neutral-300 after:transition-transform after:hover:origin-bottom-left after:hover:scale-x-100">
+                  <Link href="/archives" className="flex h-full items-center">
+                    <p>Archives</p>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </DrawerContent>
+        </Drawer>
       </div>
     </motion.nav>
   );
