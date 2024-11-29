@@ -1,10 +1,11 @@
 import React from 'react';
 import ArchiveCard from './ui/card';
 
-function JourneySection({ view }: Readonly<{ view: 'web' | 'mobile' }>) {
-  if (view === 'web') {
-    return (
-      <div className="h-screen w-screen p-10">
+function JourneySection() {
+  return (
+    <>
+      {/* web view */}
+      <div className="hidden lg:block h-screen w-screen p-10">
         <div className="flex h-full gap-5">
           <div className="flex-shrink-1 mt-auto h-full dark:bg-neutral-50 bg-neutral-900">
             <h1 className="text-[9vh] lg:text-[11vh] xl:text-[13vh] text-neutral-50 dark:text-neutral-800 p-3">Journey</h1>
@@ -45,11 +46,8 @@ function JourneySection({ view }: Readonly<{ view: 'web' | 'mobile' }>) {
           </div>
         </div>
       </div>
-    );
-  }
-  if (view === 'mobile') {
-    return (
-      <div>
+      {/* mobile view */}
+      <div className="block lg:hidden">
         <div className="h-full dark:bg-neutral-50 bg-neutral-900 mb-4">
           <h1 className="text-[9vh] lg:text-[11vh] xl:text-[13vh] text-neutral-50 dark:text-neutral-800 p-2">Journey</h1>
         </div>
@@ -86,8 +84,8 @@ function JourneySection({ view }: Readonly<{ view: 'web' | 'mobile' }>) {
           />
         </div>
       </div>
-    );
-  }
+    </>
+  );
 }
 
 export default JourneySection;
