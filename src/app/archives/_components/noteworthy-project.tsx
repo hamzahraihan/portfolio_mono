@@ -38,15 +38,27 @@ const items = [
 function NoteworthySection() {
   return (
     <div className="h-full w-full py-10 px-2">
+      {/* web view */}
       <div className="hidden lg:flex flex-col justify-between w-full h-full">
         <h1 className="h-fit w-fit text-[8vh] md:text-[9vh] lg:text-[10vh]">Other noteworthy projects</h1>
         <div className="w-full">
           <HorizontalAccordion data={items} />
         </div>
       </div>
+      {/* mobile view */}
       <div className="block lg:hidden">
-        <div>
-          <h1 className="text-5xl">Other noteworthy project</h1>
+        <div className="flex flex-col gap-5">
+          <h1 className="text-4xl">Other noteworthy project</h1>
+          {items.map((item, index) => (
+            <div key={index + 1} className="border-t py-4">
+              <div className="flex justify-between">
+                <h1>{item.title}</h1>
+                <h1>2023 / 2024</h1>
+              </div>
+              <div className="bg-neutral-600 w-full h-56 animate-pulse" />
+              <p>{item.description}</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>
