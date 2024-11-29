@@ -11,5 +11,5 @@ type LayoutProps = {
 };
 
 export default function Layout({ children }: Readonly<LayoutProps>) {
-  return <div className="overscroll-none overflow-hidden pt-5">{children}</div>;
+  return <div className="lg:overscroll-none lg:overflow-hidden pt-5">{children}</div>;
 }
