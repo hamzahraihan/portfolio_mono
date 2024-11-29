@@ -5,8 +5,8 @@ import NoteworthySection from './_components/noteworthy-project';
 import AnimatedLayout from '@/components/animated-presence';
 import JourneySection from './_components/journey';
 import AchievementSection from './_components/achievements';
-
 import HorizontalScroll from '@/components/horizontal-scroll';
+
 function ArchivePage() {
   return (
     <>
@@ -32,6 +32,15 @@ function ArchivePage() {
       {/* mobile view */}
       <div className="block lg:hidden max-w-3xl mx-auto mt-10 px-4">
         <AnimatedLayout>
+          <div className="w-full">
+            <JourneySection view="mobile" />
+          </div>
+          <div className="w-full">
+            <NoteworthySection />
+          </div>
+          <div className="w-full">
+            <JourneySection view="mobile" />
+          </div>
           <div className="w-full">
             <JourneySection view="mobile" />
           </div>
