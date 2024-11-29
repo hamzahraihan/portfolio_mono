@@ -16,7 +16,7 @@ function ArchivePage() {
           <AnimatedLayout>
             <div className="relative flex">
               <div className="h-screen w-screen">
-                <JourneySection view="web" />
+                <JourneySection />
               </div>
               <div className="h-screen w-screen">
                 <NoteworthySection />
@@ -33,16 +33,16 @@ function ArchivePage() {
       <div className="block lg:hidden max-w-3xl mx-auto mt-10 px-4">
         <AnimatedLayout>
           <div className="w-full">
-            <JourneySection view="mobile" />
+            <JourneySection />
           </div>
           <div className="w-full">
             <NoteworthySection />
           </div>
           <div className="w-full">
-            <JourneySection view="mobile" />
+            <JourneySection />
           </div>
           <div className="w-full">
-            <JourneySection view="mobile" />
+            <JourneySection />
           </div>
         </AnimatedLayout>
       </div>
