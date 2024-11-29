@@ -2,44 +2,11 @@
 
 import React, { useState } from 'react';
 
-const items = [
-  {
-    title: 'Mountain Lakes',
-
-    description: 'Crystal clear mountain lakes surrounded by towering peaks. Perfect for hiking and photography.',
-  },
-  {
-    title: 'Desert Sunset',
-
-    description: 'Breathtaking desert landscapes with vibrant orange and purple sunsets.',
-  },
-  {
-    title: 'Forest Trails',
-
-    description: 'Serene forest paths winding through ancient trees and lush undergrowth.',
-  },
-  {
-    title: 'Coastal Cliffs',
-
-    description: 'Dramatic coastal cliffs with crashing waves and ocean views.',
-  },
-  {
-    title: 'Coastal Cliffs',
-
-    description: 'Dramatic coastal cliffs with crashing waves and ocean views.',
-  },
-  {
-    title: 'Coastal Cliffs Coastal Cliffs',
-
-    description: 'Dramatic coastal cliffs with crashing waves and ocean views.',
-  },
-];
-
-function HorizontalAccordion() {
+function HorizontalAccordion({ data }: { data: Array<{ title: string; description: string }> }) {
   const [activeTab, setActiveTab] = useState(0);
   return (
     <div className="flex w-[80vw] h-[60vh] gap-2">
-      {items.map((item, index) => (
+      {data.map((item, index) => (
         <button
           type="button"
           key={index + 1}
