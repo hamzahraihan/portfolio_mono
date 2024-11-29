@@ -13,7 +13,7 @@ type PhysicsProp = {
 const SmoothScroll = ({ children }: { children: ReactNode }) => {
   const scrollRef = useRef(null);
 
-  const [screenWidth, setScreenWidth] = useState(500);
+  const [screenWidth, setScreenWidth] = useState(1200);
   console.log('🚀 ~ SmoothScroll ~ screenWidth:', screenWidth);
 
   const [pageHeight, setPageHeight] = useState(0);
@@ -21,7 +21,9 @@ const SmoothScroll = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     const handleResize = () => setScreenWidth(window.innerWidth);
+
     window.addEventListener('resize', handleResize);
+
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
