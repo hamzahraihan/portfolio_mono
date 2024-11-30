@@ -37,7 +37,7 @@ const items = [
 
 function NoteworthySection() {
   return (
-    <div className="h-full w-full lg:px-2">
+    <div className="h-full w-full lg:py-10 lg:px-2">
       {/* web view */}
       <div className="hidden lg:flex flex-col justify-between w-full h-full">
         <h1 className="h-fit w-fit text-[8vh] md:text-[9vh] lg:text-[10vh]">Other noteworthy projects</h1>
