@@ -8,18 +8,17 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { HamburgerMenuIcon } from '@radix-ui/react-icons';
 import { Drawer, DrawerContent, DrawerDescription, DrawerHeader, DrawerTitle, DrawerTrigger } from '@/components/ui/drawer';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
 
 function Navigation() {
   const { theme, setTheme } = useTheme();
   const [isPageTop, setIsPageTop] = useState(true);
   const [isNavbarVisible, setIsNavbarVisible] = useState(false);
   const previousCurrentScrollPos = useRef(0);
-
+  const screenWidth = useMediaQuery();
   const pathname = usePathname();
 
   useEffect(() => {
-    if (pathname == '/archives') return;
-
     const handleScroll = () => {
       const currentScrollPos = window.scrollY;
       setIsPageTop(currentScrollPos == 0);
@@ -31,9 +30,14 @@ function Navigation() {
       }
       previousCurrentScrollPos.current = currentScrollPos;
     };
+    if (pathname == '/archives' && screenWidth >= 1000) return;
+    if (pathname == '/archives' && screenWidth <= 1000) {
+      window.addEventListener('scroll', handleScroll);
+    }
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [isNavbarVisible, pathname]);
+  }, [isNavbarVisible, pathname, screenWidth]);
 
   // const scrollToSection = (id: string) => {
   //   const element = document.getElementById(id);
