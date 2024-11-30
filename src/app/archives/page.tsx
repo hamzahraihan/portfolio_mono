@@ -30,19 +30,18 @@ function ArchivePage() {
       </div>
 
       {/* mobile view */}
-      <div className="block lg:hidden max-w-3xl mx-auto mt-10 px-4">
+      <div className=" lg:hidden max-w-3xl mx-auto mt-10 px-4">
         <AnimatedLayout>
-          <div className="w-full">
-            <JourneySection />
-          </div>
-          <div className="w-full">
-            <NoteworthySection />
-          </div>
-          <div className="w-full">
-            <JourneySection />
-          </div>
-          <div className="w-full">
-            <JourneySection />
+          <div className="flex flex-col gap-20">
+            <div className="w-full">
+              <JourneySection />
+            </div>
+            <div className="w-full">
+              <NoteworthySection />
+            </div>
+            <div className="w-full">
+              <AchievementSection />
+            </div>
           </div>
         </AnimatedLayout>
       </div>
