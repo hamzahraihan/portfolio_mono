@@ -39,7 +39,7 @@ const SmoothScroll = ({ children }: { children: ReactNode }) => {
   const physics: PhysicsProp = { damping: 15, mass: 0.1, stiffness: 100 };
   const spring = useSpring(transform, physics);
 
-  if (pathname !== '/archives' || screenWidth <= 1000) {
+  if (pathname !== '/archives' && screenWidth >= 1000) {
     return (
       <>
         <motion.div ref={scrollRef} style={{ y: spring }} className="fixed top-0 left-0 w-full overflow-hidden will-change-transform">
@@ -49,8 +49,8 @@ const SmoothScroll = ({ children }: { children: ReactNode }) => {
       </>
     );
   }
-  if (pathname == '/archives') {
-    return children;
+  if (pathname == '/archives' || screenWidth <= 1000) {
+    return <div>{children}</div>;
   }
 };
 
