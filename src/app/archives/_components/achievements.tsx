@@ -70,21 +70,49 @@ function AchievementSection() {
         </Modal>
       </div>
       {/* mobile view */}
-      <div className="flex flex-col">
-        <h1 className="text-4xl">Certification & Achievements</h1>
-        <Modal title="Best project">
-          {Array.from({ length: 5 }).map((_, index) => (
-            <CarouselItem key={index + 1}>
-              <div className="p-1">
-                <div className="border">
-                  <div className="flex aspect-square items-center justify-center p-6">
-                    <span className="text-4xl font-semibold">{index + 1}</span>
+      <div className="flex flex-col lg:hidden">
+        <h1 className="text-4xl border-b pb-4">Certification & Achievements</h1>
+        <div className="flex flex-col gap-2 mt-5">
+          <Modal title="Best project">
+            {Array.from({ length: 5 }).map((_, index) => (
+              <CarouselItem key={index + 1}>
+                <div className="p-1">
+                  <div className="border">
+                    <div className="flex aspect-square items-center justify-center p-6">
+                      <span className="text-4xl font-semibold">{index + 1}</span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </CarouselItem>
-          ))}
-        </Modal>
+              </CarouselItem>
+            ))}
+          </Modal>
+          <Modal title="Best project">
+            {Array.from({ length: 5 }).map((_, index) => (
+              <CarouselItem key={index + 1}>
+                <div className="p-1">
+                  <div className="border">
+                    <div className="flex aspect-square items-center justify-center p-6">
+                      <span className="text-4xl font-semibold">{index + 1}</span>
+                    </div>
+                  </div>
+                </div>
+              </CarouselItem>
+            ))}
+          </Modal>
+          <Modal title="Best project">
+            {Array.from({ length: 5 }).map((_, index) => (
+              <CarouselItem key={index + 1}>
+                <div className="p-1">
+                  <div className="border">
+                    <div className="flex aspect-square items-center justify-center p-6">
+                      <span className="text-4xl font-semibold">{index + 1}</span>
+                    </div>
+                  </div>
+                </div>
+              </CarouselItem>
+            ))}
+          </Modal>
+        </div>
       </div>
     </div>
   );
