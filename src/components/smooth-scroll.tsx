@@ -2,8 +2,9 @@
 
 import { useSpring, useTransform, useScroll, motion } from 'framer-motion';
 import ResizeObserver from 'resize-observer-polyfill';
-import { ReactNode, useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { ReactNode, useCallback, useLayoutEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
 type PhysicsProp = {
   damping: number;
   mass: number;
@@ -12,20 +13,11 @@ type PhysicsProp = {
 
 const SmoothScroll = ({ children }: { children: ReactNode }) => {
   const scrollRef = useRef(null);
-
-  const [screenWidth, setScreenWidth] = useState(1200);
-  console.log('🚀 ~ SmoothScroll ~ screenWidth:', screenWidth);
-
   const [pageHeight, setPageHeight] = useState(0);
   const pathname = usePathname();
 
-  useEffect(() => {
-    const handleResize = () => setScreenWidth(window.innerWidth);
-
-    window.addEventListener('resize', handleResize);
-
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  const screenWidth = useMediaQuery();
+  console.log('🚀 ~ SmoothScroll ~ screenWidth:', screenWidth);
 
   const resizePageHeight = useCallback((entries: ResizeObserverEntry[]) => {
     for (const entry of entries) {
