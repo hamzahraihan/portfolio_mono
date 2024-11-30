@@ -1,11 +1,12 @@
 import React from 'react';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
-import { Dialog, DialogContent, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import Modal from './ui/modal';
+import { CarouselItem } from '@/components/ui/carousel';
 
 function AchievementSection() {
   return (
     <div className="h-full w-full py-10 px-2">
-      <div className="grid grid-cols-6 grid-rows-3 gap-2 h-full w-full">
+      {/* web view */}
+      <div className="hidden lg:grid grid-cols-6 grid-rows-3 gap-2 h-full w-full">
         <div className="text-xl text-neutral-500">Continuous</div>
         <div className="text-xl text-neutral-500">learning and</div>
         <div className="text-xl text-neutral-500">improvement</div>
@@ -28,84 +29,62 @@ function AchievementSection() {
           </div>
         </div>
 
-        <Dialog>
-          <DialogTrigger className="dark:bg-neutral-50 bg-neutral-900 dark:text-neutral-800 text-neutral-50 rounded-xl p-2 col-end-3" asChild>
-            <button>Best Project</button>
-          </DialogTrigger>
-
-          <DialogTitle hidden></DialogTitle>
-          <DialogContent className="flex justify-center border-none !bg-transparent">
-            <Carousel className="w-full max-w-xs">
-              <CarouselContent>
-                {Array.from({ length: 5 }).map((_, index) => (
-                  <CarouselItem key={index + 1}>
-                    <div className="p-1">
-                      <div className="border">
-                        <div className="flex aspect-square items-center justify-center p-6">
-                          <span className="text-4xl font-semibold">{index + 1}</span>
-                        </div>
-                      </div>
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious />
-              <CarouselNext />
-            </Carousel>
-          </DialogContent>
-        </Dialog>
-        <Dialog>
-          <DialogTrigger className="dark:bg-neutral-50 bg-neutral-900 dark:text-neutral-800 text-neutral-50 rounded-xl p-2" asChild>
-            <button>Best Project</button>
-          </DialogTrigger>
-
-          <DialogTitle hidden></DialogTitle>
-          <DialogContent className="flex justify-center border-none !bg-transparent">
-            <Carousel className="w-full max-w-xs">
-              <CarouselContent>
-                {Array.from({ length: 5 }).map((_, index) => (
-                  <CarouselItem key={index + 1}>
-                    <div className="p-1">
-                      <div className="border">
-                        <div className="flex aspect-square items-center justify-center p-6">
-                          <span className="text-4xl font-semibold">{index + 1}</span>
-                        </div>
-                      </div>
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious />
-              <CarouselNext />
-            </Carousel>
-          </DialogContent>
-        </Dialog>
-        <Dialog>
-          <DialogTrigger className="dark:bg-neutral-50 bg-neutral-900 dark:text-neutral-800 text-neutral-50 rounded-xl p-2" asChild>
-            <button>Best Project</button>
-          </DialogTrigger>
-
-          <DialogTitle hidden></DialogTitle>
-          <DialogContent className="flex justify-center border-none !bg-transparent">
-            <Carousel className="w-full max-w-xs">
-              <CarouselContent>
-                {Array.from({ length: 5 }).map((_, index) => (
-                  <CarouselItem key={index + 1}>
-                    <div className="p-1">
-                      <div className="border">
-                        <div className="flex aspect-square items-center justify-center p-6">
-                          <span className="text-4xl font-semibold">{index + 1}</span>
-                        </div>
-                      </div>
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious />
-              <CarouselNext />
-            </Carousel>
-          </DialogContent>
-        </Dialog>
+        <Modal title="Best project">
+          {Array.from({ length: 5 }).map((_, index) => (
+            <CarouselItem key={index + 1}>
+              <div className="p-1">
+                <div className="border">
+                  <div className="flex aspect-square items-center justify-center p-6">
+                    <span className="text-4xl font-semibold">{index + 1}</span>
+                  </div>
+                </div>
+              </div>
+            </CarouselItem>
+          ))}
+        </Modal>
+        <Modal title="Best project">
+          {Array.from({ length: 5 }).map((_, index) => (
+            <CarouselItem key={index + 1}>
+              <div className="p-1">
+                <div className="border">
+                  <div className="flex aspect-square items-center justify-center p-6">
+                    <span className="text-4xl font-semibold">{index + 1}</span>
+                  </div>
+                </div>
+              </div>
+            </CarouselItem>
+          ))}
+        </Modal>
+        <Modal title="Best project">
+          {Array.from({ length: 5 }).map((_, index) => (
+            <CarouselItem key={index + 1}>
+              <div className="p-1">
+                <div className="border">
+                  <div className="flex aspect-square items-center justify-center p-6">
+                    <span className="text-4xl font-semibold">{index + 1}</span>
+                  </div>
+                </div>
+              </div>
+            </CarouselItem>
+          ))}
+        </Modal>
+      </div>
+      {/* mobile view */}
+      <div className="flex flex-col">
+        <h1 className="text-4xl">Certification & Achievements</h1>
+        <Modal title="Best project">
+          {Array.from({ length: 5 }).map((_, index) => (
+            <CarouselItem key={index + 1}>
+              <div className="p-1">
+                <div className="border">
+                  <div className="flex aspect-square items-center justify-center p-6">
+                    <span className="text-4xl font-semibold">{index + 1}</span>
+                  </div>
+                </div>
+              </div>
+            </CarouselItem>
+          ))}
+        </Modal>
       </div>
     </div>
   );
