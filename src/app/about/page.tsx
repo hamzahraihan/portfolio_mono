@@ -66,7 +66,7 @@ function AboutPage() {
             gap={false}
           />
         </div>
-      </div>{' '}
+      </div>
     </AnimatedLayout>
   );
 }
