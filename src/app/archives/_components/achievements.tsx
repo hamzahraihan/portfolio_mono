@@ -8,11 +8,11 @@ function AchievementSection() {
       {/* web view */}
       <div className="hidden lg:grid grid-cols-6 grid-rows-3 gap-2 h-full w-full">
         <div className="text-xl text-neutral-500">Continuous</div>
-        <div className="text-xl text-neutral-500">learning and</div>
-        <div className="text-xl text-neutral-500">improvement</div>
-        <div className="text-xl text-neutral-500">are the </div>
-        <div className="text-xl text-neutral-500">keys</div>
-        <div className="text-xl text-neutral-500">to success</div>
+        <div className="text-xl text-neutral-500 text-center">learning and</div>
+        <div className="text-xl text-neutral-500 text-center">improvement</div>
+        <div className="text-xl text-neutral-500 text-center">are the </div>
+        <div className="text-xl text-neutral-500 text-center">keys</div>
+        <div className="text-xl text-neutral-500 text-end">to success</div>
 
         <div className="col-span-3 row-end-4 mt-auto">
           <div className="flex flex-col leading-none justify-center">
