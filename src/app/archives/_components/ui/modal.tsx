@@ -6,11 +6,16 @@ import { Dialog, DialogContent, DialogTitle, DialogTrigger } from '@/components/
 function Modal({ children, title }: Readonly<{ children: ReactNode; title: string }>) {
   return (
     <Dialog>
-      <DialogTrigger className="lg:dark:bg-neutral-50 lg:bg-neutral-900 lg:dark:text-neutral-800 lg:text-neutral-50 lg:rounded-xl rounded-md p-2 w-full cursor-pointer transition-all hover:dark:bg-neutral-700 hover:bg-neutral-200" asChild>
-        <div className="group">
+      <DialogTrigger className="rounded-md p-2 w-full cursor-pointer transition-all hover:dark:bg-neutral-700 hover:bg-neutral-200 lg:dark:bg-neutral-50 lg:bg-neutral-900 lg:rounded-xl overflow-hidden" asChild>
+        <div className="group overflow-hidden">
           <div className="transition-all group-hover:translate-x-4">
-            <h1 className="text-lg">{title}</h1>
-            <p className="dark:text-neutral-400 text-sm">Lorem ipsum dolor sit amet consectetur.</p>
+            <h1
+              className="text-lg lg:dark:text-neutral-800 lg:group-hover:dark:text-neutral-50 
+            lg:text-neutral-50 lg:group-hover:text-neutral-800"
+            >
+              {title}
+            </h1>
+            <p className="lg:text-neutral-300 lg:group-hover:text-neutral-600  dark:text-neutral-400 lg:group-hover:dark:text-neutral-300 text-sm">Lorem ipsum dolor sit amet consectetur.</p>
           </div>
         </div>
       </DialogTrigger>
