@@ -27,15 +27,15 @@ const AnimatedHeader = ({ firstString, secondString, reverse, className }: { fir
     const reverseIndex = handleReverseIndex() ?? 0;
     const opacityArray = useTransform(scrollYProgress, [reverseIndex * 0.02, (reverseIndex + 1) * 0.05], [1, 0], { clamp: true });
 
-    const yArray = useTransform(scrollYProgress, [reverseIndex * 0.02, (reverseIndex + 1) * 0.05], [0, 210], { clamp: true });
+    const yArray = useTransform(scrollYProgress, [reverseIndex * 0.002, (reverseIndex + 1) * 0.05], [0, 300], { clamp: true });
 
-    const physics = { damping: 15, mass: 0.1, stiffness: 55 };
+    const physics = { damping: 10, mass: 0.2, stiffness: 55 };
     const springArray = useSpring(yArray, physics);
     return { opacityArray, springArray };
   };
 
   return (
-    <div ref={containerRef} className="container max-w-full h-fit flex justify-end px-6 flex-col">
+    <div ref={containerRef} className="container max-w-full h-fit flex justify-end px-6 flex-col overflow-hidden">
       <div className={`flex flex-wrap ${!reverse ? 'justify-start' : 'justify-end'}`}>
         {firstLetters.map((letter, i) => (
           <div key={`${letter}-${i}`}>
