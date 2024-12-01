@@ -13,8 +13,8 @@ export const metadata: Metadata = {
 function AboutPage() {
   return (
     <AnimatedLayout>
-      <div className="container max-w-full">
-        <div className="flex justify-center items-center h-screen">
+      <div className="container max-w-full p-4">
+        <div className="flex justify-center pt-20 lg:pt-0 lg:items-center h-screen">
           <div className="flex flex-col h-96 gap-2">
             <div className="flex justify-between text-xs uppercase">
               <p>web</p>
@@ -26,12 +26,20 @@ function AboutPage() {
             </div>
           </div>
         </div>
-        <div className="h-[150vh]">
-          <AnimatedHeader firstString="WEB &" secondString="MOBILE DEV" reverse={false} className="text-[32vh] font-bold inline-block whitespace-nowrap leading-[24vh]" />
+
+        {/* web view header */}
+        <div className="hidden lg:block overflow-hidden">
+          <AnimatedHeader firstString="WEB &" secondString="MOBILE DEV" reverse={false} className="text-[16vw] font-bold inline-block whitespace-nowrap leading-[15vw]" />
           <div className="flex justify-center items-center py-20 text-xs">
             <div className="w-56 text-center uppercase text-neutral-500">Driven by a spirit of curiosity, his interests encompass language arts, literature, visual design, film and music.</div>
           </div>
-          <AnimatedHeader firstString="BASED IN" secondString="INDONESIA" reverse={true} className="text-[32vh] font-bold inline-block whitespace-nowrap leading-[24vh]" />
+          <AnimatedHeader firstString="BASED IN" secondString="INDONESIA" reverse={true} className="text-[16vw] font-bold inline-block whitespace-nowrap leading-[15vw]" />
+        </div>
+        {/* mobile view header */}
+        <div className="flex flex-col  items-center justify-between gap-20 lg:hidden ">
+          <div className="text-start text-5xl md:text-9xl w-full font-bold">WEB & MOBILE DEV</div>
+          <div className="text-xs w-40 text-center uppercase text-neutral-500">Driven by a spirit of curiosity, his interests encompass language arts, literature, visual design, film and music.</div>
+          <div className="text-end text-5xl md:text-9xl w-full font-bold">BASED IN INDONESIA</div>
         </div>
 
         <div className="max-w-6xl mx-auto">
