@@ -4,7 +4,7 @@ import AnimatedLayout from '@/components/animated-presence';
 
 export const metadata: Metadata = {
   title: 'Projects - Hamzah Raihan',
-  description: 'portfolio website',
+  description: 'selected projects',
 };
 
 type LayoutProps = {
