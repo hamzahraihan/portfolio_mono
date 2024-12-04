@@ -1,5 +1,4 @@
 'use client';
-// TODO MOBILE VIEW
 
 import NoteworthySection from './_components/noteworthy-project';
 import AnimatedLayout from '@/components/animated-presence';
