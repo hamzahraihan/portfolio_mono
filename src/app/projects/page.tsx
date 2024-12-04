@@ -2,7 +2,7 @@ import ProjectHeadSection from './_components/header';
 
 function ProjectPage() {
   return (
-    <div className="gap-4 max-w-7xl mx-auto px-2">
+    <div className="gap-4 max-w-7xl lg:mx-auto px-4">
       <ProjectHeadSection />
     </div>
   );
