@@ -4,7 +4,7 @@ import { CarouselItem } from '@/components/ui/carousel';
 
 function AchievementSection() {
   return (
-    <div className="h-full w-full py-10 px-2">
+    <div className="h-full w-full py-10">
       {/* web view */}
       <div className="hidden lg:grid grid-cols-6 grid-rows-3 gap-2 h-full w-full">
         <div className="text-xl text-neutral-500">Continuous</div>
