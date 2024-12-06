@@ -17,7 +17,7 @@ export default function Layout({ children, project }: Readonly<LayoutProps>) {
     <AnimatedLayout>
       <div className="container mx-auto max-w-full py-20">
         <div>{children}</div>
-        <div className="container max-w-full px-10 flex gap-2 justify-center items-center">{project}</div>
+        <div className="container max-w-full px-4 lg:px-10 flex gap-2 justify-center items-center">{project}</div>
       </div>
     </AnimatedLayout>
   );
