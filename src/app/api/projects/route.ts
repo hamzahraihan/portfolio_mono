@@ -1,6 +1,7 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
 type ProjectProps = {
+  slug: string;
   description: string;
   title: string;
   tech: string[];
@@ -12,6 +13,7 @@ type ProjectProps = {
 
 const ProjectData: ProjectProps[] = [
   {
+    slug: 'weather-app',
     roles: ['frontend developer'],
     title: 'Weather App',
     application: 'web',
@@ -21,6 +23,7 @@ const ProjectData: ProjectProps[] = [
     link: 'javascript:(0)',
   },
   {
+    slug: 'student-internship-platform',
     roles: ['fullstack developer', 'UI UX design'],
     title: 'Student Internship Platform',
     application: 'web',
@@ -29,6 +32,7 @@ const ProjectData: ProjectProps[] = [
     link: 'javascript:(0)',
   },
   {
+    slug: 'new-york-times-clone',
     roles: ['frontend developer', 'UI UX design'],
     title: 'New York Times Clone',
     application: 'web',
@@ -38,6 +42,7 @@ const ProjectData: ProjectProps[] = [
     link: 'javascript:(0)',
   },
   {
+    slug: 'cookbook',
     roles: ['frontend developer', 'UI UX design'],
     title: 'Cookbook',
     application: 'mobile',
@@ -46,6 +51,7 @@ const ProjectData: ProjectProps[] = [
     link: 'javascript:(0)',
   },
   {
+    slug: 'public-health-center-purwakarta',
     roles: ['fullstack developer'],
     title: 'Public Health Center Purwakarta',
     application: 'web',
@@ -55,6 +61,13 @@ const ProjectData: ProjectProps[] = [
   },
 ];
 
-export async function GET() {
-  return NextResponse.json({ status: 200, message: 'success', data: ProjectData });
+export async function GET(req: NextRequest) {
+  const { searchParams } = new URL(req.url);
+  const slug = searchParams.get('slug');
+  const projects = ProjectData;
+  if (slug) {
+    const projectById = projects.find((project) => project.slug == slug);
+    return NextResponse.json({ status: 200, message: 'success', data: projectById });
+  }
+  return NextResponse.json({ status: 200, message: 'success', data: projects });
 }
