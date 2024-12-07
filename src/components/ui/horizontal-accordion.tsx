@@ -1,3 +1,5 @@
+import ProjectImage from '@/app/work/_components/project-image';
+import Link from 'next/link';
 import React, { useState } from 'react';
 type ProjectProps = {
   slug: string;
@@ -33,15 +35,20 @@ function HorizontalAccordion({ data }: { data: ProjectProps[] }) {
               </div>
               <h4 className="transform -translate-y-7 -rotate-90 text-xs whitespace-nowrap">2023/2024</h4>
             </div>
-            <div
-              className={`h-full w-full flex flex-col justify-between transition-opacity duration-300
+            <Link
+              className={`relative h-full w-full flex flex-col justify-between transition-opacity duration-300 p-4 text-white
           ${activeTab === index ? 'opacity-100' : 'opacity-0'}`}
+              href={`work/project/${item.slug}`}
             >
-              <h3 className="text-xl font-semibold">{item.title}</h3>
-              <div>
+              <div className="w-full h-full absolute inset-0 top-0 left-0 bg-gradient-to-t from-black opacity-90 -z-10" />
+              <div className="absolute inset-0 top-0 left-0 -z-20">
+                <ProjectImage url={item.image} />
+              </div>
+
+              <div className="mt-auto mx-auto w-96">
                 <p className="text-sm">{item.description}</p>
               </div>
-            </div>
+            </Link>
           </div>
         </button>
       ))}
