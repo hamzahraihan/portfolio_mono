@@ -30,8 +30,8 @@ function Navigation() {
       }
       previousCurrentScrollPos.current = currentScrollPos;
     };
-    if (pathname == '/archives' && screenWidth >= 1000) return;
-    if (pathname == '/archives' && screenWidth <= 1000) {
+    if (pathname == '/work' && screenWidth >= 1000) return;
+    if (pathname == '/work' && screenWidth <= 1000) {
       window.addEventListener('scroll', handleScroll);
     }
 
@@ -79,8 +79,8 @@ function Navigation() {
             </Link>
           </div> */}
           <div className="after:duration-200 ease-out after:block after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-900 after:dark:bg-neutral-300 after:transition-transform after:hover:origin-bottom-left after:hover:scale-x-100">
-            <Link href="/archives" className="flex h-full items-center">
-              <p>Archives</p>
+            <Link href="/work" className="flex h-full items-center">
+              <p>Work</p>
             </Link>
           </div>
         </div>
