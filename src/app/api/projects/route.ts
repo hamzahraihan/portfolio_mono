@@ -20,7 +20,8 @@ const ProjectData: ProjectProps[] = [
     description:
       'Weather app is your go-to source for accurate and up-to-date weather information. With a sleek and intuitive interface, you can easily check the current conditions, hourly forecasts, and 7-day outlooks for your desired location.',
     tech: ['Typescript', 'React JS', 'TailwindCSS', 'Geopify API', 'Open Mateo API', 'Open Weather API'],
-    link: 'javascript:(0)',
+    image: '/projects/weather-app.png',
+    link: 'https://weather-app-cyan-omega.vercel.app/',
   },
   {
     slug: 'student-internship-platform',
@@ -29,7 +30,8 @@ const ProjectData: ProjectProps[] = [
     application: 'web',
     description: 'Internship platform is designed to bridge the gap between academia and industry, empowering students to achieve their career goals and helping employers find the perfect interns.',
     tech: ['Javascript', 'React JS', 'TailwindCSS', 'MySQL', 'Express JS', 'Sequelize'],
-    link: 'javascript:(0)',
+    image: '/projects/student-internship.png',
+    link: 'https://sistem-magang-unsika.vercel.app/',
   },
   {
     slug: 'new-york-times-clone',
