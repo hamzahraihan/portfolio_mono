@@ -1,6 +1,6 @@
 'use client';
 
-import NoteworthySection from './_components/noteworthy-project';
+import SelectedProjects from './_components/selected-projects';
 import AnimatedLayout from '@/components/animated-presence';
 import JourneySection from './_components/journey';
 import AchievementSection from './_components/achievements';
@@ -18,7 +18,7 @@ function ArchivePage() {
                 <JourneySection />
               </div>
               <div className="h-screen w-screen">
-                <NoteworthySection />
+                <SelectedProjects />
               </div>
               <div className="h-screen w-screen">
                 <AchievementSection />
@@ -36,7 +36,7 @@ function ArchivePage() {
               <JourneySection />
             </div>
             <div className="w-full">
-              <NoteworthySection />
+              <SelectedProjects />
             </div>
             <div className="w-full">
               <AchievementSection />
