@@ -1,9 +1,18 @@
-'use client';
-
 import React, { useState } from 'react';
+type ProjectProps = {
+  slug: string;
+  description: string;
+  title: string;
+  tech: string[];
+  image?: string;
+  roles: string[];
+  link?: string;
+  application?: 'mobile' | 'web';
+};
 
-function HorizontalAccordion({ data }: { data: Array<{ title: string; description: string }> }) {
+function HorizontalAccordion({ data }: { data: ProjectProps[] }) {
   const [activeTab, setActiveTab] = useState(0);
+
   return (
     <div className="flex w-[80vw] h-[60vh] gap-2">
       {data.map((item, index) => (
@@ -22,14 +31,16 @@ function HorizontalAccordion({ data }: { data: Array<{ title: string; descriptio
                   {item.title}
                 </h3>
               </div>
-              <h4 className="transform -translate-y-7 -rotate-90 text-xs whitespace-nowrap">2023 / 2024</h4>
+              <h4 className="transform -translate-y-7 -rotate-90 text-xs whitespace-nowrap">2023/2024</h4>
             </div>
             <div
               className={`h-full w-full flex flex-col justify-between transition-opacity duration-300
           ${activeTab === index ? 'opacity-100' : 'opacity-0'}`}
             >
               <h3 className="text-xl font-semibold">{item.title}</h3>
-              <p className="text-sm">{item.description}</p>
+              <div>
+                <p className="text-sm">{item.description}</p>
+              </div>
             </div>
           </div>
         </button>
