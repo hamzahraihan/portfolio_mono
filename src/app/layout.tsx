@@ -1,4 +1,4 @@
-import { Questrial } from 'next/font/google';
+import { Inconsolata } from 'next/font/google';
 import '@/app/ui/globals.css';
 import { ThemeProvider } from '../components/theme-provider';
 import Navigation from '../components/ui/navigation';
@@ -6,7 +6,7 @@ import SmoothScroll from '@/components/smooth-scroll';
 import { ContactSection } from './_components/contact';
 import { Metadata } from 'next';
 
-const questrial = Questrial({
+const inconsolata = Inconsolata({
   subsets: ['latin'],
   display: 'swap',
   weight: '400',
@@ -24,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${questrial.className} antialiased transition-colors duration-300`}>
+      <body className={`${inconsolata.className} antialiased transition-colors duration-300`}>
         <div id="noise-bg"></div>
         <ThemeProvider attribute="class" defaultTheme="dark">
           <Navigation />
