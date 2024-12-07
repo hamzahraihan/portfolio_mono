@@ -67,7 +67,7 @@ export async function GET(req: NextRequest) {
   const projects = ProjectData;
   if (slug) {
     const projectById = projects.find((project) => project.slug == slug);
-    return NextResponse.json({ status: 200, message: 'success', data: projectById });
+    return NextResponse.json({ status: 200, message: 'success', result: projectById });
   }
-  return NextResponse.json({ status: 200, message: 'success', data: projects });
+  return NextResponse.json({ status: 200, message: 'success', result: projects });
 }
