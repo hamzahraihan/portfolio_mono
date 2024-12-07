@@ -18,9 +18,9 @@ function ContactSection() {
     }, 2000);
   };
 
-  if (pathname == '/archives' && screenWidth >= 1000) return;
+  if (pathname == '/work' && screenWidth >= 1000) return;
 
-  if (pathname !== '/archives' || screenWidth <= 1000) {
+  if (pathname !== '/work' || screenWidth <= 1000) {
     return (
       <footer className="flex justify-between p-3 text-sm h-16 w-full">
         <div className="flex flex-col gap-1">
