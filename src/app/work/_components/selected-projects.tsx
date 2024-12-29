@@ -1,5 +1,7 @@
 import HorizontalAccordion from '@/components/ui/horizontal-accordion';
 import { fetcher } from '@/lib/swr/fetcher';
+import Image from 'next/image';
+import Link from 'next/link';
 import React, { Suspense } from 'react';
 import useSWR from 'swr';
 
@@ -39,11 +41,21 @@ function SelectedProjects() {
           <Suspense fallback={<>Loading...</>}>
             {data?.result.map((project: ProjectProps) => (
               <div key={project.slug} className="border-t py-4">
-                <div className="flex justify-between">
-                  <h1>{project.title}</h1>
-                  <h1>{project.tech}</h1>
+                <div className="flex flex-col justify-between">
+                  <h1 className="text-2xl">{project.title}</h1>
+                  <div className="flex flex-wrap gap-2">
+                    {project?.tech.map((tech) => (
+                      <h1 key={tech}>{tech}</h1>
+                    ))}
+                  </div>
                 </div>
-                <div className="bg-neutral-600 w-full h-56 animate-pulse" />
+                {project.image ? (
+                  <Link href={project.link}>
+                    <Image className="object-cover h-full w-full" src={project.image} width={400} height={400} alt="project-image" />
+                  </Link>
+                ) : (
+                  <div className="bg-neutral-600 w-full h-56 animate-pulse" />
+                )}
                 <p>{project.description}</p>
               </div>
             ))}
