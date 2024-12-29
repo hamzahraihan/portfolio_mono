@@ -1,7 +1,6 @@
 import HorizontalAccordion from '@/components/ui/horizontal-accordion';
 import { fetcher } from '@/lib/swr/fetcher';
 import Image from 'next/image';
-import Link from 'next/link';
 import React, { Suspense } from 'react';
 import useSWR from 'swr';
 
@@ -50,9 +49,9 @@ function SelectedProjects() {
                   </div>
                 </div>
                 {project.image ? (
-                  <Link href={project.link}>
+                  <a href={project.link}>
                     <Image className="object-cover h-full w-full" src={project.image} width={400} height={400} alt="project-image" />
-                  </Link>
+                  </a>
                 ) : (
                   <div className="bg-neutral-600 w-full h-56 animate-pulse" />
                 )}
