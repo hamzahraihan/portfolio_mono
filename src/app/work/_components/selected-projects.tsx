@@ -43,9 +43,17 @@ function SelectedProjects() {
                 <div className="flex flex-col justify-between">
                   <h1 className="text-2xl">{project.title}</h1>
                   <div className="flex flex-wrap gap-2">
-                    {project?.tech.map((tech) => (
-                      <h1 key={tech}>{tech}</h1>
-                    ))}
+                    {project?.tech.map((tech, i) => {
+                      const isLast = i === project?.tech.length - 1;
+                      const isSecondLast = i === project?.tech.length - 2;
+                      const separator = isSecondLast ? ' &' : isLast ? '' : ',';
+                      return (
+                        <h1 key={tech}>
+                          {tech}
+                          {separator}
+                        </h1>
+                      );
+                    })}
                   </div>
                 </div>
                 {project.image ? (
