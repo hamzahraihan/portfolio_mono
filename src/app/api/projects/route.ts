@@ -41,16 +41,19 @@ const ProjectData: ProjectProps[] = [
     description:
       "Experience the power of journalism with our New York Times clone. This web application replicates the iconic newspaper's digital experience, offering a curated selection of news articles, opinion pieces, and multimedia content.",
     tech: ['Javascript', 'HTML', 'CSS'],
-    link: 'javascript:(0)',
+    image: 'https://raw.githubusercontent.com/hamzahraihan/new-york-times-clone/refs/heads/main/screenshots/preview1.png',
+    link: 'https://new-york-times-clone-javascript.netlify.app/',
   },
   {
-    slug: 'cookbook',
+    slug: 'e-plant-shopping',
     roles: ['frontend developer', 'UI UX design'],
-    title: 'Cookbook',
-    application: 'mobile',
-    description: 'Discover a world of flavors with our Cookbook App! This intuitive app is your personal chef, providing a vast collection of recipes, cooking tips, and meal planning tools.',
-    tech: ['Dart', 'Flutter'],
-    link: 'javascript:(0)',
+    title: 'E-Plant Shopping',
+    application: 'web',
+    description:
+      "The app provides an intuitive shopping experience with detailed product descriptions, cultivation tips, and health benefits for each herb. Whether you're looking to grow your own herbal garden or find the perfect ingredients for natural remedies, our app is your one-stop shop for all things herbal.",
+    tech: ['React JS', 'Typescript'],
+    image: '/projects/e-plantshopping.png',
+    link: 'https://hamzahraihan.github.io/e-plantShopping/',
   },
   {
     slug: 'public-health-center-purwakarta',
@@ -59,7 +62,8 @@ const ProjectData: ProjectProps[] = [
     application: 'web',
     description: 'The Public Health Center Purwakarta is committed to improving the health and well-being of our community. Our dedicated team of healthcare professionals provides a wide range of services to meet your health needs.',
     tech: ['PHP', 'CodeIgniter', 'Bootstrap'],
-    link: 'javascript:(0)',
+    image: '/projects/puskesmas.png',
+    link: 'https://puskesmaskota.purwakartakab.go.id/',
   },
 ];
 
