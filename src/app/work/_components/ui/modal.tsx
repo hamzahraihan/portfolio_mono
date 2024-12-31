@@ -5,7 +5,7 @@ import { Dialog, DialogContent, DialogTitle, DialogTrigger } from '@/components/
 
 function Modal({ children, title }: Readonly<{ children: ReactNode; title: string }>) {
   return (
-    <Dialog>
+    <Dialog modal>
       <DialogTrigger className="rounded-md p-2 w-full cursor-pointer transition-all hover:dark:bg-neutral-700 hover:bg-neutral-200 lg:dark:bg-neutral-50 lg:bg-neutral-900 lg:rounded-xl overflow-hidden" asChild>
         <div className="group overflow-hidden">
           <div className="transition-all group-hover:translate-x-4">
@@ -22,10 +22,14 @@ function Modal({ children, title }: Readonly<{ children: ReactNode; title: strin
 
       <DialogTitle hidden></DialogTitle>
       <DialogContent className="flex justify-center border-none !bg-transparent">
-        <Carousel className="w-full max-w-xs">
-          <CarouselContent>{children}</CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
+        <Carousel className="w-full max-w-sm flex flex-col">
+          <div className="relative">
+            <CarouselContent className="-ml-1">{children}</CarouselContent>
+          </div>
+          <div className="flex justify-end gap-2 mt-4">
+            <CarouselPrevious className="static translate-y-0" />
+            <CarouselNext className="static translate-y-0" />
+          </div>
         </Carousel>
       </DialogContent>
     </Dialog>
