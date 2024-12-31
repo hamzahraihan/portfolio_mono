@@ -5,9 +5,9 @@ import { Switch } from './switch';
 import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { HamburgerMenuIcon } from '@radix-ui/react-icons';
-import { Drawer, DrawerContent, DrawerDescription, DrawerHeader, DrawerTitle, DrawerTrigger } from '@/components/ui/drawer';
+import { Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerHeader, DrawerTitle, DrawerTrigger } from '@/components/ui/drawer';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 
 function Navigation() {
@@ -39,6 +39,7 @@ function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [isNavbarVisible, pathname, screenWidth]);
 
+  const router = useRouter();
   // const scrollToSection = (id: string) => {
   //   const element = document.getElementById(id);
   //   if (element) {
@@ -88,7 +89,7 @@ function Navigation() {
 
       <div className="block lg:hidden">
         <Drawer>
-          <DrawerTrigger asChild>
+          <DrawerTrigger>
             <HamburgerMenuIcon />
           </DrawerTrigger>
           <DrawerContent>
@@ -98,26 +99,23 @@ function Navigation() {
                 <DrawerDescription></DrawerDescription>
               </DrawerHeader>
               <div className="flex flex-col gap-4 p-4">
-                <div className="after:duration-200 ease-out after:block after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-900 after:dark:bg-neutral-300 after:transition-transform after:hover:origin-bottom-left after:hover:scale-x-100 h-full">
-                  <Link href="/" className="flex h-full items-center">
+                <DrawerClose onClick={() => router.push('/')} className="after:duration-200 ease-out after:block after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-900 after:dark:bg-neutral-300 after:transition-transform after:hover:origin-bottom-left after:hover:scale-x-100 h-full">
+                  <div onClick={() => router.push('/')} className="flex h-full items-center">
                     <p>Home</p>
-                  </Link>
-                </div>
-                <div className="after:duration-200 ease-out after:block after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-900 after:dark:bg-neutral-300 after:transition-transform after:hover:origin-bottom-left after:hover:scale-x-100 h-full">
-                  <Link href="/about" className="flex h-full items-center">
+                  </div>
+                </DrawerClose>
+
+                <DrawerClose onClick={() => router.push('/about')} className="after:duration-200 ease-out after:block after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-900 after:dark:bg-neutral-300 after:transition-transform after:hover:origin-bottom-left after:hover:scale-x-100 h-full">
+                  <div onClick={() => router.push('/about')} className="flex h-full items-center">
                     <p>About</p>
-                  </Link>
-                </div>
-                {/* <div className="after:duration-200 ease-out after:block after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-900 after:dark:bg-neutral-300 after:transition-transform after:hover:origin-bottom-left after:hover:scale-x-100">
-                  <Link href="/projects" className="flex h-full items-center">
+                  </div>
+                </DrawerClose>
+
+                <DrawerClose onClick={() => router.push('/work')} className="after:duration-200 ease-out after:block after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-900 after:dark:bg-neutral-300 after:transition-transform after:hover:origin-bottom-left after:hover:scale-x-100">
+                  <div onClick={() => router.push('/work')} className="flex h-full items-center">
                     <p>Work</p>
-                  </Link>
-                </div> */}
-                <div className="after:duration-200 ease-out after:block after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-900 after:dark:bg-neutral-300 after:transition-transform after:hover:origin-bottom-left after:hover:scale-x-100">
-                  <Link href="/work" className="flex h-full items-center">
-                    <p>Work</p>
-                  </Link>
-                </div>
+                  </div>
+                </DrawerClose>
                 <Switch onClick={() => setTheme(theme == 'dark' ? 'light' : 'dark')} checked={theme != 'light'} />
               </div>
             </div>
