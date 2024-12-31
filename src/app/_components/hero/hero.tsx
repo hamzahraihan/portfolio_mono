@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 function HeroSection() {
   return (
-    <div id="hero" className="flex flex-col max-w-full h-screen justify-between pt-16 px-6 pb-6">
+    <div id="hero" className="flex flex-col max-w-full h-screen justify-between pt-16 lg:px-6 px-2 pb-6">
       <motion.div className="flex flex-col h-fit lg:mt-4" initial={{ opacity: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1.5 }}>
         <h1 className="text-2xl lg:text-5xl">Hamzah Raihan</h1>
         <p>Software Engineer</p>
