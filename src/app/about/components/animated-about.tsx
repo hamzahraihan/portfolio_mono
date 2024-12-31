@@ -14,7 +14,7 @@ type SectionProps = {
 };
 
 function IntroductionSection({ texts, title, id, position, links, gap, tech }: Readonly<SectionProps>) {
-  console.log('🚀 ~ IntroductionSection ~ tech:', tech?.languages);
+  
   return (
     <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1, delay: 0.3 }} viewport={{ once: true }} className={`h-fit lg:w-[40vw] py-5 ${position == 'right' ? '' : 'ml-auto'} `}>
       <h1 className="pb-2 flex items-center gap-1">
