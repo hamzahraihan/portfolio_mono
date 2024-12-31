@@ -91,7 +91,7 @@ function AchievementSection() {
               <CarouselItem key={index + 1}>
                 <div className="p-1">
                   <div className="border">
-                    <div className="flex aspect-square items-center justify-center p-6">
+                    <div className="flex aspect-video h-96 w-48 items-center justify-center p-6">
                       <span className="text-4xl font-semibold">{index + 1}</span>
                     </div>
                   </div>
