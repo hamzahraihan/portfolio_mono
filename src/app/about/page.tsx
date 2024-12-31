@@ -36,7 +36,7 @@ function AboutPage() {
           <AnimatedHeader firstString="BASED IN" secondString="INDONESIA" reverse={true} className="text-[16vw] font-bold inline-block whitespace-nowrap leading-[15vw]" />
         </div>
         {/* mobile view header */}
-        <div className="flex flex-col  items-center justify-between gap-20 lg:hidden ">
+        <div className="flex flex-col  items-center justify-between gap-20 lg:hidden pb-10">
           <div className="text-start text-5xl md:text-9xl w-full font-bold">WEB & MOBILE DEV</div>
           <div className="text-xs w-40 text-center uppercase text-neutral-500">Driven by a spirit of curiosity, his interests encompass language arts, literature, visual design, film and music.</div>
           <div className="text-end text-5xl md:text-9xl w-full font-bold">BASED IN INDONESIA</div>
