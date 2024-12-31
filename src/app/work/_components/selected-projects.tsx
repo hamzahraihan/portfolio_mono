@@ -42,19 +42,7 @@ function SelectedProjects() {
               <div key={project.slug} className="border-t py-4">
                 <div className="flex flex-col justify-between">
                   <h1 className="text-2xl">{project.title}</h1>
-                  <div className="flex flex-wrap gap-2">
-                    {project?.tech.map((tech, i) => {
-                      const isLast = i === project?.tech.length - 1;
-                      const isSecondLast = i === project?.tech.length - 2;
-                      const separator = isSecondLast ? ' &' : isLast ? '' : ',';
-                      return (
-                        <h1 key={tech}>
-                          {tech}
-                          {separator}
-                        </h1>
-                      );
-                    })}
-                  </div>
+                  <div className="flex flex-wrap gap-2">{project?.tech.toLocaleString('id-ID')}</div>
                 </div>
                 {project.image ? (
                   <a href={project.link}>
@@ -63,7 +51,7 @@ function SelectedProjects() {
                 ) : (
                   <div className="bg-neutral-600 w-full h-56 animate-pulse" />
                 )}
-                <p>{project.description}</p>
+                <p>{project.description}</p> 
               </div>
             ))}
           </Suspense>
