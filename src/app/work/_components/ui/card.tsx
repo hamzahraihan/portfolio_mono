@@ -15,14 +15,14 @@ function ArchiveCard({ row, span, col, title, date, position, location, descript
   return (
     <div className={`flex flex-col text-sm ${row} ${span} ${col}`}>
       <div className="flex justify-between">
-        <p>{title}</p>
-        <p className="text-neutral-400">{date}</p>
+        <p className='text-lg leading-tight'>{title}</p>
+        <p className="text-lg text-neutral-400 leading-tight">{date}</p>
       </div>
       <div className="flex flex-col gap-4 border-t border-l border-neutral-500 p-2">
         <div className="container">
           <div className="flex justify-between text-md">
-            <p>{position}</p>
-            <p className="text-neutral-400">{location}</p>
+            <p className='text-lg leading-tight'>{position}</p>
+            <p className="text-neutral-400 leading-tight">{location}</p>
           </div>
         </div>
         <p>{description}</p>
