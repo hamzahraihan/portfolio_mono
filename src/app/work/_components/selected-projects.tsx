@@ -39,10 +39,10 @@ function SelectedProjects() {
           <h1 className="text-4xl">Selected Projects</h1>
           <Suspense fallback={<>Loading...</>}>
             {data?.result.map((project: ProjectProps) => (
-              <div key={project.slug} className="border-t py-4">
+              <div key={project.slug} className="flex flex-col gap-2 border-t py-4">
                 <div className="flex flex-col justify-between">
-                  <h1 className="text-2xl">{project.title}</h1>
-                  <div className="flex flex-wrap gap-2">{project?.tech.toLocaleString('id-ID')}</div>
+                  <h1 className="text-2xl ">{project.title}</h1>
+                  <div className="flex flex-wrap gap-2 text-neutral-400">{project?.tech.toLocaleString('id-ID')}</div>
                 </div>
                 {project.image ? (
                   <a href={project.link}>
@@ -51,7 +51,7 @@ function SelectedProjects() {
                 ) : (
                   <div className="bg-neutral-600 w-full h-56 animate-pulse" />
                 )}
-                <p>{project.description}</p> 
+                <p className="leading-tight">{project.description}</p>
               </div>
             ))}
           </Suspense>
