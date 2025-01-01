@@ -1,8 +1,14 @@
 import React from 'react';
 import Modal from './ui/modal';
 import { CarouselItem } from '@/components/ui/carousel';
+import useSWR from 'swr';
+import { fetcher } from '@/lib/swr/fetcher';
+import Image from 'next/image';
+import { AchievementProps } from '@/app/api/achievements/route';
 
 function AchievementSection() {
+  const { data, isLoading } = useSWR('/api/achievements', fetcher);
+  console.log(data);
   return (
     <div className="h-full w-full py-10 lg:px-10">
       {/* web view */}
@@ -74,13 +80,11 @@ function AchievementSection() {
         <h1 className="text-4xl border-b pb-4">Certification & Achievements</h1>
         <div className="flex flex-col gap-2 mt-5">
           <Modal title="Best project">
-            {Array.from({ length: 5 }).map((_, index) => (
-              <CarouselItem key={index + 1}>
+            {data?.result.map((item: AchievementProps, i: number) => (
+              <CarouselItem key={i + 1}>
                 <div className="p-1">
-                  <div className="border">
-                    <div className="flex aspect-square items-center justify-center p-6">
-                      <span className="text-4xl font-semibold">{index + 1}</span>
-                    </div>
+                  <div className="flex aspect-video items-center justify-center p-6">
+                    <Image className="object-cover w-full h-56" src={item.image} alt="achivement image" width={200} height={200} />
                   </div>
                 </div>
               </CarouselItem>
