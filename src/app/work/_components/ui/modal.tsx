@@ -3,19 +3,19 @@ import { ReactNode } from 'react';
 import { Carousel, CarouselContent, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 
-function Modal({ children, title }: Readonly<{ children: ReactNode; title: string }>) {
+function Modal({ children, title, description }: Readonly<{ children: ReactNode; title: string; description: string }>) {
   return (
     <Dialog modal>
       <DialogTrigger className="rounded-md p-2 w-full cursor-pointer transition-all hover:dark:bg-neutral-700 hover:bg-neutral-200 lg:dark:bg-neutral-50 lg:bg-neutral-900 lg:rounded-xl overflow-hidden" asChild>
         <div className="group overflow-hidden">
           <div className="transition-all group-hover:translate-x-4">
             <h1
-              className="text-lg lg:dark:text-neutral-800 lg:group-hover:dark:text-neutral-50 
+              className="lg:text-[3vh] text-lg lg:dark:text-neutral-800 lg:group-hover:dark:text-neutral-50 
             lg:text-neutral-50 lg:group-hover:text-neutral-800"
             >
               {title}
             </h1>
-            <p className="lg:text-neutral-300 lg:group-hover:text-neutral-600  dark:text-neutral-400 lg:group-hover:dark:text-neutral-300 text-sm">Lorem ipsum dolor sit amet consectetur.</p>
+            <p className="lg:text-neutral-300 lg:group-hover:text-neutral-600  dark:text-neutral-400 lg:group-hover:dark:text-neutral-300 lg:text-[2vh] text-sm leading-tight">{description}</p>
           </div>
         </div>
       </DialogTrigger>
