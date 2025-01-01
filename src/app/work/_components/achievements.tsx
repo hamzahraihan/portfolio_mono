@@ -48,18 +48,29 @@ function AchievementSection() {
             <h1 className="uppercase font-semibold text-[6vh] md:text-[7vh] lg:text-[8vh]">& Achievements</h1>
           </div>
         </div>
-
-        {data?.result.map((item: AchievementProps) => (
-          <Carousel key={item.title} data={item} />
-        ))}
+        {isLoading ? (
+          'loading...'
+        ) : (
+          <>
+            {data?.result.map((item: AchievementProps) => (
+              <Carousel key={item.title} data={item} />
+            ))}
+          </>
+        )}
       </div>
       {/* mobile view */}
       <div className="flex flex-col lg:hidden">
         <h1 className="text-4xl border-b pb-4">Certification & Achievements</h1>
         <div className="flex flex-col gap-2 mt-5">
-          {data?.result.map((item: AchievementProps) => (
-            <Carousel key={item.title} data={item} />
-          ))}
+          {isLoading ? (
+            'loading...'
+          ) : (
+            <>
+              {data?.result.map((item: AchievementProps) => (
+                <Carousel key={item.title} data={item} />
+              ))}
+            </>
+          )}
         </div>
       </div>
     </div>
