@@ -24,11 +24,11 @@ function Modal({ children, title }: Readonly<{ children: ReactNode; title: strin
       <DialogContent className="flex justify-center border-none !bg-transparent">
         <Carousel className="w-full max-w-sm flex flex-col">
           <div className="relative">
-            <CarouselContent className="-ml-1">{children}</CarouselContent>
+            <CarouselContent>{children}</CarouselContent>
           </div>
-          <div className="flex justify-end gap-2 mt-4">
-            <CarouselPrevious className="static translate-y-0" />
-            <CarouselNext className="static translate-y-0" />
+          <div className="flex justify-end gap-2 mt-4 pt-2">
+            <CarouselPrevious className="static" />
+            <CarouselNext className="static" />
           </div>
         </Carousel>
       </DialogContent>
