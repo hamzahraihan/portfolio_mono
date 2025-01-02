@@ -12,9 +12,9 @@ function Carousel({ data }: { data: AchievementProps }) {
       {data?.image.map((image, index) => (
         <CarouselItem key={index + 1}>
           <div className="p-1">
-            <div className="flex aspect-square items-center justify-center p-6">
+            <a href={data.link?.[index]} target="_blank" rel="noopener noreferrer" className="flex aspect-square items-center justify-center p-6">
               <Image className="object-cover w-full h-56" src={image} alt="achivement image" width={200} height={200} />
-            </div>
+            </a>
           </div>
         </CarouselItem>
       ))}
