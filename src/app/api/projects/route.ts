@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-type ProjectProps = {
+export type ProjectProps = {
   slug: string;
   description: string;
   title: string;
@@ -8,10 +8,19 @@ type ProjectProps = {
   image?: string;
   roles: string[];
   link?: string;
+  github?: string;
   application?: 'mobile' | 'web';
 };
 
 const ProjectData: ProjectProps[] = [
+  {
+    slug: 'aissist',
+    roles: ['mobile developer'],
+    title: 'AIssist',
+    application: 'mobile',
+    description: 'AIssist app is your assistance that will provide many things such as text generation, image generation, and ai assistant.',
+    tech: ['Typescript', 'React Native', 'AI SDK', 'Cloudflare Worker AI'],
+  },
   {
     slug: 'weather-app',
     roles: ['frontend developer'],
@@ -22,6 +31,7 @@ const ProjectData: ProjectProps[] = [
     tech: ['Typescript', 'React JS', 'TailwindCSS', 'Geopify API', 'Open Mateo API', 'Open Weather API'],
     image: '/projects/weather-app.png',
     link: 'https://weather-app-cyan-omega.vercel.app/',
+    github: 'https://github.com/hamzahraihan/weather-app',
   },
   {
     slug: 'student-internship-platform',
@@ -43,6 +53,7 @@ const ProjectData: ProjectProps[] = [
     tech: ['Javascript', 'HTML', 'CSS'],
     image: 'https://raw.githubusercontent.com/hamzahraihan/new-york-times-clone/refs/heads/main/screenshots/preview1.png',
     link: 'https://new-york-times-clone-javascript.netlify.app/',
+    github: 'https://github.com/hamzahraihan/new-york-times-clone',
   },
   {
     slug: 'e-plant-shopping',
