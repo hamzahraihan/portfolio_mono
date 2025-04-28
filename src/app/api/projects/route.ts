@@ -19,7 +19,8 @@ const ProjectData: ProjectProps[] = [
     title: 'AIssist',
     application: 'mobile',
     description: 'AIssist app is your assistance that will provide many things such as text generation, image generation, and ai assistant.',
-    tech: ['Typescript', 'React Native', 'AI SDK', 'Cloudflare Worker AI'],
+    tech: ['Typescript', 'React Native', 'AI SDK'],
+    github: 'https://github.com/hamzahraihan/aissist-app',
   },
   {
     slug: 'weather-app',
@@ -65,6 +66,7 @@ const ProjectData: ProjectProps[] = [
     tech: ['React JS', 'Typescript'],
     image: '/projects/e-plantshopping.png',
     link: 'https://hamzahraihan.github.io/e-plantShopping/',
+    github: 'https://github.com/hamzahraihan/e-plantShopping',
   },
   {
     slug: 'public-health-center-purwakarta',
