@@ -1,15 +1,8 @@
+import { ProjectProps } from '@/app/api/projects/route';
 import ProjectImage from '@/app/work/_components/project-image';
+import { GitHubLogoIcon } from '@radix-ui/react-icons';
+import { ExternalLinkIcon } from 'lucide-react';
 import React, { useState } from 'react';
-type ProjectProps = {
-  slug: string;
-  description: string;
-  title: string;
-  tech: string[];
-  image?: string;
-  roles: string[];
-  link?: string;
-  application?: 'mobile' | 'web';
-};
 
 function HorizontalAccordion({ data }: { data: ProjectProps[] }) {
   const [activeTab, setActiveTab] = useState(0);
@@ -32,16 +25,30 @@ function HorizontalAccordion({ data }: { data: ProjectProps[] }) {
                   {item.title}
                 </h3>
               </div>
-              <h4 className="transform -translate-y-7 -rotate-90 text-xs whitespace-nowrap">2023/2024</h4>
+              {/* <h4 className="transform -translate-y-7 -rotate-90 text-xs whitespace-nowrap"></h4> */}
             </div>
-            <a
-              className={`relative h-full w-full flex flex-col justify-between transition-opacity duration-300 p-4 text-white
-          ${activeTab === index ? 'opacity-100' : 'opacity-0'}`}
-              href={item.link}
-              rel='noreferrer noopener'
-              target='_blank'
+            <div
+              className={`group relative h-full w-full flex flex-col justify-between transition-all duration-300 p-4 text-white
+          ${activeTab === index ? 'visible' : 'hidden'}`}
+              // href={item.link}
+              // rel="noreferrer noopener"
+              // target="_blank"
             >
+              <div className="absolute inset-0 top-0 left-0 flex flex-col  justify-center items-center h-full opacity-0  group-hover:opacity-100 transition-all duration-150 z-50">
+                <div className="flex flex-col gap-2">
+                  {item.github && (
+                    <a href={item.github} rel="noreferrer noopener" target="_blank" className="bg-black p-4 rounded-lg">
+                      <GitHubLogoIcon />
+                    </a>
+                  )}
+
+                  <a href={item.link} rel="noreferrer noopener" target="_blank" className="bg-black p-4 rounded-lg ">
+                    <ExternalLinkIcon className="h-4 w-4" />
+                  </a>
+                </div>
+              </div>
               <div className="w-full h-full absolute inset-0 top-0 left-0 bg-gradient-to-t from-black opacity-90 -z-10" />
+
               <div className="absolute inset-0 top-0 left-0 -z-20">
                 <ProjectImage url={item.image} />
               </div>
@@ -49,7 +56,7 @@ function HorizontalAccordion({ data }: { data: ProjectProps[] }) {
               <div className="mt-auto mx-auto w-96">
                 <p className="text-sm">{item.description}</p>
               </div>
-            </a>
+            </div>
           </div>
         </button>
       ))}
