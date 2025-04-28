@@ -58,7 +58,7 @@ function Navigation() {
       className="p-4 min-w-full flex justify-between items-center border-b dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900 text-sm h-12 z-10"
       initial={{ position: 'fixed', y: 0 }}
       animate={!isPageTop && isNavbarVisible ? { y: -100 } : { y: 0 }}
-      transition={{ duration: 0.5, type: 'spring', damping: 20, stiffness: 100, restDelta: 0.001 }}
+      transition={{ duration: 0.5, type: 'spring', damping: 20, stiffness: 100 }}
     >
       <Link href="/" className="block lg:hidden">
         hamzah<span className="dark:bg-neutral-50 dark:text-neutral-800 bg-neutral-800 text-neutral-50">raihan</span>
@@ -99,19 +99,28 @@ function Navigation() {
                 <DrawerDescription></DrawerDescription>
               </DrawerHeader>
               <div className="flex flex-col gap-4 p-4">
-                <DrawerClose onClick={() => router.push('/')} className="after:duration-200 ease-out after:block after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-900 after:dark:bg-neutral-300 after:transition-transform after:hover:origin-bottom-left after:hover:scale-x-100 h-full">
+                <DrawerClose
+                  onClick={() => router.push('/')}
+                  className="after:duration-200 ease-out after:block after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-900 after:dark:bg-neutral-300 after:transition-transform after:hover:origin-bottom-left after:hover:scale-x-100 h-full"
+                >
                   <div onClick={() => router.push('/')} className="flex h-full items-center">
                     <p>Home</p>
                   </div>
                 </DrawerClose>
 
-                <DrawerClose onClick={() => router.push('/about')} className="after:duration-200 ease-out after:block after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-900 after:dark:bg-neutral-300 after:transition-transform after:hover:origin-bottom-left after:hover:scale-x-100 h-full">
+                <DrawerClose
+                  onClick={() => router.push('/about')}
+                  className="after:duration-200 ease-out after:block after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-900 after:dark:bg-neutral-300 after:transition-transform after:hover:origin-bottom-left after:hover:scale-x-100 h-full"
+                >
                   <div onClick={() => router.push('/about')} className="flex h-full items-center">
                     <p>About</p>
                   </div>
                 </DrawerClose>
 
-                <DrawerClose onClick={() => router.push('/work')} className="after:duration-200 ease-out after:block after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-900 after:dark:bg-neutral-300 after:transition-transform after:hover:origin-bottom-left after:hover:scale-x-100">
+                <DrawerClose
+                  onClick={() => router.push('/work')}
+                  className="after:duration-200 ease-out after:block after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-900 after:dark:bg-neutral-300 after:transition-transform after:hover:origin-bottom-left after:hover:scale-x-100"
+                >
                   <div onClick={() => router.push('/work')} className="flex h-full items-center">
                     <p>Work</p>
                   </div>
