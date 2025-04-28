@@ -41,10 +41,11 @@ function HorizontalAccordion({ data }: { data: ProjectProps[] }) {
                       <GitHubLogoIcon />
                     </a>
                   )}
-
-                  <a href={item.link} rel="noreferrer noopener" target="_blank" className="bg-black p-4 rounded-lg ">
-                    <ExternalLinkIcon className="h-4 w-4" />
-                  </a>
+                  {item.link && (
+                    <a href={item.link} rel="noreferrer noopener" target="_blank" className="bg-black p-4 rounded-lg ">
+                      <ExternalLinkIcon className="h-4 w-4" />
+                    </a>
+                  )}
                 </div>
               </div>
               <div className="w-full h-full absolute inset-0 top-0 left-0 bg-gradient-to-t from-black opacity-90 -z-10" />
