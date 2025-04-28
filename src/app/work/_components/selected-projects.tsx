@@ -45,9 +45,11 @@ function SelectedProjects() {
                   <div className="flex flex-wrap gap-2 text-neutral-400">{project?.tech.toLocaleString('id-ID')}</div>
                 </div>
                 {project.image ? (
-                  <a href={project.link}>
-                    <Image className="object-cover h-full w-full" src={project.image} width={400} height={400} alt="project-image" />
-                  </a>
+                  <div className="hover">
+                    <a href={project.link}>
+                      <Image className="object-cover h-full w-full" src={project.image} width={400} height={400} alt="project-image" />
+                    </a>
+                  </div>
                 ) : (
                   <div className="bg-neutral-600 w-full h-56 animate-pulse" />
                 )}
