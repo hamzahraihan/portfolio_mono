@@ -17,6 +17,7 @@ const ProjectData: ProjectProps[] = [
     slug: 'aissist',
     roles: ['mobile developer'],
     title: 'AIssist',
+    image: '/projects/aissist-app.png',
     application: 'mobile',
     description: 'AIssist app is your assistance that will provide many things such as text generation, image generation, and ai assistant.',
     tech: ['Typescript', 'React Native', 'AI SDK'],
